@@ -9,7 +9,7 @@ const Topics = () => {
             id: "11.1",
             title: "Infinite Sequences",
             description: "Learn about the building blocks of series and how numbers can go on forever.",
-            path: "/",
+            path: "/11-1",
             icon: <Zap size={24} />,
             status: "Available"
         },
@@ -127,11 +127,11 @@ const Topics = () => {
                 ))}
             </div>
 
-            <footer style={{ marginTop: '2rem', textAlign: 'center', padding: '2rem' }}>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', opacity: 0.6 }}>
-                    New topics are added weekly. Stay tuned!
-                </p>
-            </footer>
+            <div style={{ marginTop: '3rem', padding: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+                <div className="glass-card" style={{ padding: '0.6rem 2rem', borderRadius: '100px', fontSize: '0.85rem', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
+                    Practice makes perfect
+                </div>
+            </div>
         </motion.div>
     );
 };

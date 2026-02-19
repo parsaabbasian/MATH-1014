@@ -78,11 +78,11 @@ const About = () => {
                 </motion.div>
             </div>
 
-            <footer style={{ marginTop: '2rem', textAlign: 'center', padding: '2rem' }}>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', opacity: 0.6 }}>
-                    Built for students, by students.
-                </p>
-            </footer>
+            <div style={{ marginTop: '3rem', padding: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+                <div className="glass-card" style={{ padding: '0.6rem 2rem', borderRadius: '100px', fontSize: '0.85rem', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
+                    Built for York Students
+                </div>
+            </div>
         </motion.div>
     );
 };
