@@ -19,7 +19,7 @@ const Topics = () => {
             description: "What happens when you add up an infinite number of terms? Find out here.",
             path: "/11-2",
             icon: <Target size={24} />,
-            status: "Coming Soon"
+            status: "Available"
         },
         {
             id: "11.3",
@@ -48,11 +48,14 @@ const Topics = () => {
     };
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+        hidden: { y: 25, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
-            transition: { duration: 0.5, ease: 'easeOut' }
+            transition: {
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1]
+            }
         }
     };
 
