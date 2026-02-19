@@ -6,6 +6,14 @@ import { BookOpen, ArrowRight, Zap, Target, Layout, Sparkles } from 'lucide-reac
 const Topics = () => {
     const topics = [
         {
+            id: "7.7",
+            title: "Approximate Integration",
+            description: "Learn logical methods to estimate integrals when exact antiderivatives don't exist.",
+            path: "/7-7",
+            icon: <Layout size={24} />,
+            status: "Available"
+        },
+        {
             id: "11.1",
             title: "Infinite Sequences",
             description: "Learn about the building blocks of series and how numbers can go on forever.",
