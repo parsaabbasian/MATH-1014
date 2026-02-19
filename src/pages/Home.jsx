@@ -183,9 +183,9 @@ const Home = () => {
                 </div>
             </motion.section>
 
-            <footer style={{ marginTop: '10rem', textAlign: 'center', padding: '4rem 2rem', borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '600' }}>
-                    © 2026 MATH 1014 | York University
+            <footer style={{ marginTop: '8rem', textAlign: 'center', padding: '2rem' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', opacity: 0.6 }}>
+                    © 2026 MATH 1014 | Calculus II Mastery
                 </p>
             </footer>
         </motion.div>
