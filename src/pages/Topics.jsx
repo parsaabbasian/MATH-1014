@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { BookOpen, ArrowRight, Zap, Target, Layout } from 'lucide-react';
+import { BookOpen, ArrowRight, Zap, Target, Layout, Sparkles } from 'lucide-react';
 
 const Topics = () => {
     const topics = [

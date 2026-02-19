@@ -44,9 +44,8 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
     return (
         <div className="example-box practice-box" style={{
             border: status === 'correct' ? '2px solid var(--success)' :
-                status === 'wrong' ? '2px solid var(--error)' :
-                    difficulty === 'VERY HARD' ? '2px solid var(--primary-light)' : '1px solid var(--border)',
-            background: difficulty === 'VERY HARD' ? 'rgba(0,0,0,0.2)' : 'var(--card-bg)'
+                status === 'wrong' ? '2px solid var(--error)' : '1px solid var(--border)',
+            background: 'var(--card-bg)'
         }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <div className="example-title" style={{ color: difficultyColors[difficulty], margin: 0, letterSpacing: '0.15em', fontSize: '0.75rem' }}>
