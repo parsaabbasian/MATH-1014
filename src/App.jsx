@@ -6,6 +6,7 @@ import Topics from './pages/Topics';
 import Landing from './pages/Landing';
 import Section11_2 from './pages/Section11_2';
 import Section7_7 from './pages/Section7_7';
+import Resources from './pages/Resources';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
               <Route path="/11-1" element={<Section11_1 />} />
               <Route path="/11-2" element={<Section11_2 />} />
               <Route path="/7-7" element={<Section7_7 />} />
+              <Route path="/resources" element={<Resources />} />
               <Route path="/topics" element={<Topics />} />
               <Route path="/about" element={<About />} />
             </Routes>

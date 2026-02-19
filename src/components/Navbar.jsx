@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Info, Moon, Sun } from 'lucide-react';
+import { BookOpen, Info, Moon, Sun, FileText } from 'lucide-react';
 import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 
@@ -19,6 +19,10 @@ const Navbar = () => {
                     <Link to="/topics" className="nav-link">
                         <BookOpen size={20} />
                         <span>Topics</span>
+                    </Link>
+                    <Link to="/resources" className="nav-link">
+                        <FileText size={20} />
+                        <span>Resources</span>
                     </Link>
                     <Link to="/about" className="nav-link">
                         <Info size={20} />
