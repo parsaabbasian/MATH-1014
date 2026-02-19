@@ -176,11 +176,11 @@ const Section11_1 = () => {
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question="a_n = \frac{n^2 - 1}{n^2 + 1}"
+                        question={<MathBlock math="a_n = \frac{n^2 - 1}{n^2 + 1}" inline />}
                         correctAnswer="1"
                         steps={[
                             "Divide the top and bottom by n².",
-                            "a_n = (1 - 1/n²) / (1 + 1/n²)",
+                            <span><MathBlock math="a_n = \frac{1 - 1/n^2}{1 + 1/n^2}" inline /></span>,
                             "As n approaches infinity, 1/n² becomes 0.",
                             "The result simplifies to 1/1 = 1."
                         ]}
@@ -188,38 +188,38 @@ const Section11_1 = () => {
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question="a_n = \frac{\ln(n)}{n}"
+                        question={<MathBlock math="a_n = \frac{\ln(n)}{n}" inline />}
                         correctAnswer="0"
                         steps={[
                             "This is an ∞/∞ indeterminate form. Use L'Hopital's Rule.",
                             "Differentiate top: 1/n. Differentiate bottom: 1.",
-                            "The limit becomes lim (1/n) / 1.",
+                            <span>The limit becomes <MathBlock math="\lim \frac{1/n}{1}" inline />.</span>,
                             "As n grows, 1/n approaches 0."
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Hard"
-                        question="\sqrt{n^2 + n} - n"
+                        question={<MathBlock math="\sqrt{n^2 + n} - n" inline />}
                         correctAnswer="1/2"
                         steps={[
-                            "Multiply by the conjugate: (√(n²+n) + n) / (√(n²+n) + n).",
-                            "The top becomes (n²+n) - n² = n.",
-                            "The bottom is √(n²+n) + n.",
-                            "Divide top and bottom by n: 1 / (√(1 + 1/n) + 1).",
-                            "As n goes to infinity, we get 1 / (√1 + 1) = 1/2."
+                            <span>Multiply by the conjugate: <MathBlock math="\frac{\sqrt{n^2+n} + n}{\sqrt{n^2+n} + n}" inline />.</span>,
+                            <span>The top becomes <MathBlock math="(n^2+n) - n^2 = n" inline />.</span>,
+                            <span>The bottom is <MathBlock math="\sqrt{n^2+n} + n" inline />.</span>,
+                            <span>Divide top and bottom by <MathBlock math="n" inline />: <MathBlock math="\frac{1}{\sqrt{1 + 1/n} + 1}" inline />.</span>,
+                            <span>As n goes to infinity, we get <MathBlock math="\frac{1}{\sqrt{1} + 1} = 1/2" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="VERY HARD"
-                        question="\left(1 + \frac{1}{n}\right)^n"
+                        question={<MathBlock math="\left(1 + \frac{1}{n}\right)^n" inline />}
                         correctAnswer="e"
                         steps={[
-                            "Use the natural log trick: Let y = lim (1 + 1/n)^n, so ln(y) = lim n * ln(1 + 1/n).",
-                            "Rewrite as lim ln(1 + 1/n) / (1/n) for L'Hopital's.",
+                            <span>Use the natural log trick: Let <MathBlock math="y = \lim (1 + 1/n)^n" inline />, so <MathBlock math="\ln(y) = \lim n \cdot \ln(1 + 1/n)" inline />.</span>,
+                            <span>Rewrite as <MathBlock math="\lim \frac{\ln(1 + 1/n)}{1/n}" inline /> for L'Hopital's.</span>,
                             "The limit of ln(y) is 1.",
-                            "Therefore, y = e^1 = e."
+                            <span>Therefore, <MathBlock math="y = e^1 = e" inline />.</span>
                         ]}
                     />
                 </div>

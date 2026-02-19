@@ -184,10 +184,10 @@ const Section7_7 = () => {
                         }
                         correctAnswer="4"
                         steps={[
-                            "Δx = (2-0)/1 = 2.",
-                            "The midpoint of [0,2] is x = 1.",
-                            "f(1) = 1² + 1 = 2.",
-                            "M₁ = f(1) * Δx = 2 * 2 = 4."
+                            <span><MathBlock math="\Delta x = (2-0)/1 = 2" inline />.</span>,
+                            <span>The midpoint of <MathBlock math="[0,2]" inline /> is <MathBlock math="x = 1" inline />.</span>,
+                            <span><MathBlock math="f(1) = 1^2 + 1 = 2" inline />.</span>,
+                            <span><MathBlock math="M_1 = f(1) \cdot \Delta x = 2 \cdot 2 = 4" inline />.</span>
                         ]}
                     />
                     <PracticeExercise
@@ -197,11 +197,11 @@ const Section7_7 = () => {
                         }
                         correctAnswer="0.375"
                         steps={[
-                            "Δx = (1-0)/2 = 0.5.",
-                            "Points: x₀=0, x₁=0.5, x₂=1.",
-                            "f(0)=0, f(0.5)=0.25, f(1)=1.",
-                            "T₂ = (0.5/2) * [f(0) + 2f(0.5) + f(1)]",
-                            "T₂ = 0.25 * [0 + 0.5 + 1] = 0.375."
+                            <span><MathBlock math="\Delta x = (1-0)/2 = 0.5" inline />.</span>,
+                            <span>Points: <MathBlock math="x_0=0, x_1=0.5, x_2=1" inline />.</span>,
+                            <span><MathBlock math="f(0)=0, f(0.5)=0.25, f(1)=1" inline />.</span>,
+                            <span><MathBlock math="T_2 = \frac{0.5}{2} [f(0) + 2f(0.5) + f(1)]" inline /></span>,
+                            <span><MathBlock math="T_2 = 0.25 [0 + 0.5 + 1] = 0.375" inline />.</span>
                         ]}
                     />
                 </div>

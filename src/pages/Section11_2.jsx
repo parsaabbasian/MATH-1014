@@ -129,48 +129,48 @@ const Section11_2 = () => {
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question="\sum_{n=1}^{\infty} 5\left( -\frac{7}{4} \right)^{n-1}"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} 5\left( -\frac{7}{4} \right)^{n-1}" inline />}
                         correctAnswer="divergent"
                         steps={[
                             "Identify the ratio r.",
-                            "r = -7/4, so |r| = 1.75.",
-                            "Since |r| > 1, the series diverges."
+                            <span><MathBlock math="r = -7/4" inline />, so <MathBlock math="|r| = 1.75" inline />.</span>,
+                            <span>Since <MathBlock math="|r| > 1" inline />, the series diverges.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question="\sum_{n=1}^{\infty} \frac{3}{10^n}"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{3}{10^n}" inline />}
                         correctAnswer="1/3"
                         steps={[
-                            "Expand: 3/10 + 3/100 + 3/1000 + ...",
-                            "First term a = 3/10. Ratio r = 1/10.",
-                            "Sum formula: S = a / (1 - r) = (3/10) / (9/10).",
-                            "S = 3/9 = 1/3."
+                            <span>Expand: <MathBlock math="3/10 + 3/100 + 3/1000 + \dots" inline /></span>,
+                            <span>First term <MathBlock math="a = 3/10" inline />. Ratio <MathBlock math="r = 1/10" inline />.</span>,
+                            <span>Sum formula: <MathBlock math="S = a / (1 - r) = (3/10) / (9/10)" inline />.</span>,
+                            <span><MathBlock math="S = 3/9 = 1/3" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Hard"
-                        question="\sum_{n=1}^{\infty} \frac{2n}{n+1}"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{2n}{n+1}" inline />}
                         correctAnswer="divergent"
                         steps={[
                             "Apply the Divergence Test: limit of individual terms.",
-                            "lim (2n / (n + 1)) as n approaches infinity is 2.",
+                            <span><MathBlock math="\lim_{n \to \infty} \frac{2n}{n+1} = 2" inline />.</span>,
                             "Since the limit is not 0, the total sum must diverge."
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="VERY HARD"
-                        question="\sum_{n=1}^{\infty} \frac{1}{n^2 + n}"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{1}{n^2 + n}" inline />}
                         correctAnswer="1"
                         steps={[
-                            "Use partial fractions: 1/(n(n+1)) = 1/n - 1/(n+1).",
-                            "Write out partial sums Sn: (1 - 1/2) + (1/2 - 1/3) + ... + (1/n - 1/(n+1)).",
+                            <span>Use partial fractions: <MathBlock math="\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}" inline />.</span>,
+                            <span>Write out partial sums <MathBlock math="S_n" inline />: <MathBlock math="(1 - 1/2) + (1/2 - 1/3) + \dots + (1/n - 1/(n+1))" inline />.</span>,
                             "This is a Telescoping Series. Most terms cancel out!",
-                            "Sn = 1 - 1/(n+1).",
-                            "As n approaches infinity, Sn approaches 1."
+                            <span><MathBlock math="S_n = 1 - 1/(n+1)" inline />.</span>,
+                            <span>As <MathBlock math="n" inline /> approaches infinity, <MathBlock math="S_n" inline /> approaches 1.</span>
                         ]}
                     />
                 </div>

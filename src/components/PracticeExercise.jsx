@@ -66,7 +66,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
             </div>
 
             <div style={{ marginBottom: '2rem' }}>
-                {typeof question === 'string' ? <MathBlock math={question} block /> : question}
+                {question}
             </div>
 
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
@@ -144,7 +144,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                                                 >
                                                     <div className="step-number-circle" style={{ width: '24px', height: '24px', fontSize: '0.75rem' }}>{index + 1}</div>
                                                     <div className="step-content-box" style={{ fontSize: '0.95rem' }}>
-                                                        {typeof step === 'string' ? <MathBlock math={step} inline /> : step}
+                                                        {step}
                                                     </div>
                                                 </motion.div>
                                             )}
