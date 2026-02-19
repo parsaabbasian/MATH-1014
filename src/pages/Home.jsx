@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import MathBlock from '../components/MathBlock';
 import StepByStep from '../components/StepByStep';
-import { MousePointer2, Zap, Layout, GraduationCap } from 'lucide-react';
+import PracticeExercise from '../components/PracticeExercise';
+import { MousePointer2, Zap, Layout, GraduationCap, Sparkles } from 'lucide-react';
 
 const Home = () => {
     const containerVariants = {
@@ -14,7 +15,7 @@ const Home = () => {
     };
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+        hidden: { y: 25, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
@@ -126,7 +127,7 @@ const Home = () => {
                 </div>
             </motion.section>
 
-            {/* Part 3: Determine convergence */}
+            {/* Part 3: Quick Tests */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
@@ -136,52 +137,85 @@ const Home = () => {
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem' }}>
-                    {/* Test A */}
                     <div className="example-box" style={{ margin: 0 }}>
                         <div className="example-title">Option A</div>
                         <MathBlock math="a_n = \frac{n^2}{n + 4}" block />
                         <StepByStep steps={[
                             <p>Divide by n to simplify: <MathBlock math="a_n = \frac{n}{1 + \frac{4}{n}}" inline />.</p>,
-                            <p>The top keeps growing while the bottom stays near 1.</p>,
                             <MathBlock math="\lim_{n \to \infty} a_n = \infty" block />,
-                            <div className="result-banner">Verdict: <strong>Divergent</strong> (Never stops growing!)</div>
+                            <div className="result-banner">Verdict: <strong>Divergent</strong></div>
                         ]} />
                     </div>
 
-                    {/* Test B */}
                     <div className="example-box" style={{ margin: 0 }}>
                         <div className="example-title">Option B</div>
                         <MathBlock math="a_n = \frac{4^{n+1}}{7^n}" block />
                         <StepByStep steps={[
                             <p>Rewrite this as: <MathBlock math="a_n = 4 \cdot \left(\frac{4}{7}\right)^n" inline />.</p>,
-                            <p>Since the fraction <MathBlock math="\frac{4}{7}" inline /> is less than 1, it will shrink to zero.</p>,
-                            <MathBlock math="\lim_{n \to \infty} a_n = 0" block />,
-                            <div className="result-banner">Verdict: <strong>Convergent</strong></div>
+                            <div className="result-banner">Verdict: <strong>Convergent</strong> to 0</div>
                         ]} />
                     </div>
+                </div>
+            </motion.section>
 
-                    {/* Test C */}
-                    <div className="example-box" style={{ margin: 0 }}>
-                        <div className="example-title">Option C</div>
-                        <MathBlock math="a_n = \frac{(-1)^n n^3}{n^4 + 6}" block />
-                        <StepByStep steps={[
-                            <p>Let's ignore the +/- for a second: <MathBlock math="\left| a_n \right| = \frac{n^3}{n^4+6}" inline />.</p>,
-                            <p>The power on the bottom (4) is bigger than the top (3), so it goes to 0.</p>,
-                            <div className="result-banner">Verdict: <strong>Convergent</strong></div>
-                        ]} />
+            {/* More Examples Section */}
+            <motion.section variants={itemVariants} className="section-card glass-card" style={{ border: '2px solid var(--primary-light)' }}>
+                <div className="section-header">
+                    <div className="section-icon-wrapper" style={{ background: 'var(--text)' }}>
+                        <Sparkles size={28} style={{ color: 'var(--primary)' }} />
                     </div>
+                    <h2 className="section-title">Challenge: More Examples</h2>
+                </div>
 
-                    {/* Test D */}
-                    <div className="example-box" style={{ margin: 0 }}>
-                        <div className="example-title">Option D</div>
-                        <MathBlock math="a_n = \sin\left(\frac{3}{n}\right)" block />
-                        <StepByStep steps={[
-                            <p>As n gets huge, the inside <MathBlock math="\frac{3}{n}" inline /> goes to 0.</p>,
-                            <p>The sine of 0 is just 0.</p>,
-                            <MathBlock math="\lim_{n \to \infty} \sin\left(\frac{3}{n}\right) = \sin(0) = 0" block />,
-                            <div className="result-banner">Verdict: <strong>Convergent</strong></div>
-                        ]} />
-                    </div>
+                <div style={{ display: 'grid', gap: '2rem' }}>
+                    <PracticeExercise
+                        difficulty="Simple"
+                        question="a_n = \frac{n^2 - 1}{n^2 + 1}"
+                        correctAnswer="1"
+                        steps={[
+                            "Divide the top and bottom by n².",
+                            "a_n = (1 - 1/n²) / (1 + 1/n²)",
+                            "As n approaches infinity, 1/n² becomes 0.",
+                            "The result simplifies to 1/1 = 1."
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="Medium"
+                        question="a_n = \frac{\ln(n)}{n}"
+                        correctAnswer="0"
+                        steps={[
+                            "This is an ∞/∞ indeterminate form. Use L'Hopital's Rule.",
+                            "Differentiate top: 1/n. Differentiate bottom: 1.",
+                            "The limit becomes lim (1/n) / 1.",
+                            "As n grows, 1/n approaches 0."
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="Hard"
+                        question="\sqrt{n^2 + n} - n"
+                        correctAnswer="1/2"
+                        steps={[
+                            "Multiply by the conjugate: (√(n²+n) + n) / (√(n²+n) + n).",
+                            "The top becomes (n²+n) - n² = n.",
+                            "The bottom is √(n²+n) + n.",
+                            "Divide top and bottom by n: 1 / (√(1 + 1/n) + 1).",
+                            "As n goes to infinity, we get 1 / (√1 + 1) = 1/2."
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="VERY HARD"
+                        question="\left(1 + \frac{1}{n}\right)^n"
+                        correctAnswer="e"
+                        steps={[
+                            "Use the natural log trick: Let y = lim (1 + 1/n)^n, so ln(y) = lim n * ln(1 + 1/n).",
+                            "Rewrite as lim ln(1 + 1/n) / (1/n) for L'Hopital's.",
+                            "The limit of ln(y) is 1.",
+                            "Therefore, y = e^1 = e."
+                        ]}
+                    />
                 </div>
             </motion.section>
 

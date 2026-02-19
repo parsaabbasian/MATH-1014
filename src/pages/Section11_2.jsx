@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import MathBlock from '../components/MathBlock';
 import StepByStep from '../components/StepByStep';
+import PracticeExercise from '../components/PracticeExercise';
 import { Sigma, Sparkles, Zap, Layout, GraduationCap, Target } from 'lucide-react';
 
 const Section11_2 = () => {
@@ -63,7 +64,7 @@ const Section11_2 = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                         <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
                             <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>A. Exponential Growth</div>
-                            <MathBlock math="\left\{ \frac{3}{5^n} \right\} \rightarrow \sum_{n=1}^{\infty} \frac{3}{5^n} = \frac{3}{5} + \frac{3}{25} + \frac{3}{125} + \dots" block />
+                            <MathBlock math="\left\{ \frac{3}{5^n} \right\} \rightarrow \sum_{n=1}^{\infty} \frac{3}{5^n} = \frac{3}{5} + \frac{3}{25} + \dots" block />
                         </div>
                         <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
                             <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>B. Linear Terms</div>
@@ -99,7 +100,7 @@ const Section11_2 = () => {
                 </div>
 
                 <div className="example-box">
-                    <div className="example-title">Option A</div>
+                    <div className="example-title">Concept Example</div>
                     <MathBlock math="6 + 3 + \frac{3}{2} + \frac{3}{4} + \dots" block />
                     <StepByStep steps={[
                         <p>First term: <MathBlock math="a = 6" inline />. Ratio: <MathBlock math="r = \frac{3}{6} = \frac{1}{2}" inline />.</p>,
@@ -108,61 +109,64 @@ const Section11_2 = () => {
                         <div className="result-banner">Verdict: <strong>Convergent</strong> to 12</div>
                     ]} />
                 </div>
-
-                <div className="example-box">
-                    <div className="example-title">Option B</div>
-                    <MathBlock math="\sum_{n=1}^{\infty} 5\left( -\frac{7}{4} \right)^{n-1}" block />
-                    <StepByStep steps={[
-                        <p>Here <MathBlock math="a = 5" inline /> and <MathBlock math="r = -7/4" inline />.</p>,
-                        <p>Check the ratio: <MathBlock math="|r| = \frac{7}{4} = 1.75" inline />.</p>,
-                        <p>Since <MathBlock math="1.75 > 1" inline />, the sum never settles down.</p>,
-                        <div className="result-banner">Verdict: <strong>Divergent</strong></div>
-                    ]} />
-                </div>
-
-                <div className="example-box">
-                    <div className="example-title">Option C</div>
-                    <MathBlock math="\sum_{n=1}^{\infty} \frac{3^n}{2^{n-1}}" block />
-                    <StepByStep steps={[
-                        <p>Rewrite to see the pattern: <MathBlock math="\sum_{n=1}^{\infty} 3 \cdot \left(\frac{3}{2}\right)^{n-1}" inline />.</p>,
-                        <p>The ratio <MathBlock math="r = \frac{3}{2}" inline /> is greater than 1.</p>,
-                        <div className="result-banner">Verdict: <strong>Divergent</strong></div>
-                    ]} />
-                </div>
             </motion.section>
 
-            {/* Divergence Test */}
-            <motion.section variants={itemVariants} className="section-card glass-card">
+            {/* More Examples Section */}
+            <motion.section variants={itemVariants} className="section-card glass-card" style={{ border: '2px solid var(--primary-light)' }}>
                 <div className="section-header">
-                    <div className="section-icon-wrapper">
-                        <Target size={28} />
+                    <div className="section-icon-wrapper" style={{ background: 'var(--text)' }}>
+                        <Sparkles size={28} style={{ color: 'var(--primary)' }} />
                     </div>
-                    <h2 className="section-title">The Divergence Test</h2>
-                </div>
-                <div className="example-box" style={{ background: 'var(--surface)' }}>
-                    <p style={{ fontWeight: '800', color: 'var(--primary-light)' }}>The Shortcut:</p>
-                    <p>If <MathBlock math="\lim_{n \to \infty} a_n \neq 0" inline />, the series <strong>MUST</strong> diverge.</p>
+                    <h2 className="section-title">Challenge: More Examples</h2>
                 </div>
 
-                <div className="example-box">
-                    <div className="example-title">Option D</div>
-                    <MathBlock math="\sum_{n=1}^{\infty} \frac{2n}{n+1}" block />
-                    <StepByStep steps={[
-                        <p>Check the limit of the terms: <MathBlock math="\lim_{n \to \infty} \frac{2n}{n+1}" inline />.</p>,
-                        <p>As n goes to infinity, the terms approach <strong>2</strong>.</p>,
-                        <p>Since <MathBlock math="2 \neq 0" inline />, the sum will keep adding ~2 forever.</p>,
-                        <div className="result-banner">Verdict: <strong>Divergent</strong></div>
-                    ]} />
-                </div>
+                <div style={{ display: 'grid', gap: '2rem' }}>
+                    <PracticeExercise
+                        difficulty="Simple"
+                        question="\sum_{n=1}^{\infty} 5\left( -\frac{7}{4} \right)^{n-1}"
+                        correctAnswer="divergent"
+                        steps={[
+                            "Identify the ratio r.",
+                            "r = -7/4, so |r| = 1.75.",
+                            "Since |r| > 1, the series diverges."
+                        ]}
+                    />
 
-                <div className="example-box">
-                    <div className="example-title">Option E</div>
-                    <MathBlock math="\sum_{n=1}^{\infty} \frac{1}{2n} = \frac{1}{2} + \frac{1}{4} + \frac{1}{6} + \dots" block />
-                    <StepByStep steps={[
-                        <p>This is <MathBlock math="\frac{1}{2}" inline /> times the <strong>Harmonic Series</strong> (<MathBlock math="\sum \frac{1}{n}" inline />).</p>,
-                        <p>We know the Harmonic Series grows to infinity (even if slowly!).</p>,
-                        <div className="result-banner">Verdict: <strong>Divergent</strong></div>
-                    ]} />
+                    <PracticeExercise
+                        difficulty="Medium"
+                        question="\sum_{n=1}^{\infty} \frac{3}{10^n}"
+                        correctAnswer="1/3"
+                        steps={[
+                            "Expand: 3/10 + 3/100 + 3/1000 + ...",
+                            "First term a = 3/10. Ratio r = 1/10.",
+                            "Sum formula: S = a / (1 - r) = (3/10) / (9/10).",
+                            "S = 3/9 = 1/3."
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="Hard"
+                        question="\sum_{n=1}^{\infty} \frac{2n}{n+1}"
+                        correctAnswer="divergent"
+                        steps={[
+                            "Apply the Divergence Test: limit of individual terms.",
+                            "lim (2n / (n + 1)) as n approaches infinity is 2.",
+                            "Since the limit is not 0, the total sum must diverge."
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="VERY HARD"
+                        question="\sum_{n=1}^{\infty} \frac{1}{n^2 + n}"
+                        correctAnswer="1"
+                        steps={[
+                            "Use partial fractions: 1/(n(n+1)) = 1/n - 1/(n+1).",
+                            "Write out partial sums Sn: (1 - 1/2) + (1/2 - 1/3) + ... + (1/n - 1/(n+1)).",
+                            "This is a Telescoping Series. Most terms cancel out!",
+                            "Sn = 1 - 1/(n+1).",
+                            "As n approaches infinity, Sn approaches 1."
+                        ]}
+                    />
                 </div>
             </motion.section>
 

@@ -331,6 +331,42 @@ body::before {
   border: 1.5px solid var(--border);
 }
 
+
+.practice-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 0.8rem 1.2rem;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.practice-input:focus {
+  border-color: var(--primary-light);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.practice-input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.practice-box {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.practice-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-light);
+}
+
 @media (max-width: 640px) {
   .section-card {
     padding: 1.5rem;
