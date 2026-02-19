@@ -139,6 +139,14 @@ body {
   transform: scale(1.05);
 }
 
+.step-content {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
 .main-content {
   max-width: 1200px;
   margin: 4rem auto;

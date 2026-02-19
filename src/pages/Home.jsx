@@ -38,9 +38,6 @@ const Home = () => {
                 <motion.h1 variants={itemVariants} className="hero-title">
                     11.1 <span className="text-gradient">Infinite Sequences</span>
                 </motion.h1>
-                <motion.p variants={itemVariants} className="hero-description">
-                    A sequence can be thought of as a function whose domain is the set of positive integers.
-                </motion.p>
             </header>
 
             {/* Part 1: Finding a formula */}
@@ -186,10 +183,9 @@ const Home = () => {
                 </div>
             </motion.section>
 
-            <footer style={{ marginTop: '10rem', textAlign: 'center', padding: '6rem 2rem', borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
-                <p style={{ color: 'var(--text)', fontWeight: '800', fontSize: '1.2rem', marginBottom: '0.75rem' }}>MATH 1014: Calculus II</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', fontFamily: 'var(--font-serif)', fontStyle: 'italic', maxWidth: '600px', margin: '0 auto' }}>
-                    Mathematics is the most beautiful and most powerful creation of the human spirit. — Stefan Banach
+            <footer style={{ marginTop: '10rem', textAlign: 'center', padding: '4rem 2rem', borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '600' }}>
+                    © 2026 MATH 1014 | York University
                 </p>
             </footer>
         </motion.div>
