@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css');
 
 :root {
@@ -9,8 +9,8 @@
   --success: #22c55e;
   --error: #ef4444;
 
-  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
-  --font-serif: 'EB Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Crimson Pro', serif;
 
   /* Default Dark Theme */
   --bg: #0f172a;
@@ -215,4 +215,63 @@ h3 {
   .section-card {
     padding: 1.5rem;
   }
+}
+
+.hero-header {
+  position: relative;
+  padding: 8rem 0 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-description {
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  max-width: 750px;
+  line-height: 1.6;
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin: 0 auto;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, var(--primary-glow) 0%, transparent 70%);
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
 }
