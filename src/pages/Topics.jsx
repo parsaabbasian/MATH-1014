@@ -52,13 +52,16 @@ const Topics = () => {
         >
             <header className="hero-header">
                 <div className="hero-glow" />
-                <motion.div variants={itemVariants} className="hero-badge">
+                <motion.div variants={itemVariants} className="hero-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <BookOpen size={16} />
                     <span>Curriculum Overview</span>
                 </motion.div>
                 <motion.h1 variants={itemVariants} className="hero-title">
-                    Explore <span className="text-gradient">Topics</span>
+                    Explore the <span className="text-gradient">MATH 1014</span> topics:
                 </motion.h1>
+                <motion.p variants={itemVariants} className="hero-description" style={{ maxWidth: '700px', margin: '0 auto 2.5rem' }}>
+                    Interactive step-by-step guides for MATH 1014. Explore complex sequences and series through modern, AI-powered discovery.
+                </motion.p>
             </header>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
@@ -130,11 +133,6 @@ const Topics = () => {
                 ))}
             </div>
 
-            <div style={{ marginTop: '3rem', padding: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-                <div className="glass-card" style={{ padding: '0.6rem 2rem', borderRadius: '100px', fontSize: '0.85rem', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
-                    Practice makes perfect
-                </div>
-            </div>
         </motion.div>
     );
 };

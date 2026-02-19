@@ -176,11 +176,6 @@ const Section11_2 = () => {
                 </div>
             </motion.section>
 
-            <div style={{ marginTop: '3rem', padding: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-                <div className="glass-card" style={{ padding: '0.6rem 2rem', borderRadius: '100px', fontSize: '0.85rem', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
-                    © 2026 MATH 1014 | Practice & Mastery
-                </div>
-            </div>
         </motion.div>
     );
 };

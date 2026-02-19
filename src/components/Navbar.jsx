@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sigma, BookOpen, Info, Moon, Sun } from 'lucide-react';
+import { BookOpen, Info, Moon, Sun } from 'lucide-react';
+import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
         <nav className="navbar glass-card">
             <div className="nav-container">
                 <Link to="/" className="nav-logo">
-                    <Sigma className="logo-icon text-gradient" size={32} />
+                    <Logo size={34} />
                     <span className="logo-text">MATH<span className="text-gradient"> 1014</span></span>
                 </Link>
 
