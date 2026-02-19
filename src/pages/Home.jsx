@@ -182,8 +182,8 @@ const Home = () => {
                 </div>
             </motion.section>
 
-            <footer style={{ marginTop: '5rem', textAlign: 'center', padding: '3rem 2rem' }}>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '600' }}>
+            <footer style={{ marginTop: '1.5rem', textAlign: 'center', padding: '2rem' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', opacity: 0.6 }}>
                     © 2026 MATH 1014 | Practice & Learn
                 </p>
             </footer>

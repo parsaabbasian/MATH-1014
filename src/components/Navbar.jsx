@@ -15,7 +15,7 @@ const Navbar = () => {
                 </Link>
 
                 <div className="nav-right">
-                    <Link to="/" className="nav-link">
+                    <Link to="/topics" className="nav-link">
                         <BookOpen size={20} />
                         <span>Topics</span>
                     </Link>

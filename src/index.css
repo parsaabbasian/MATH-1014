@@ -125,12 +125,17 @@ body::before {
 }
 
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 700;
   font-size: 0.9rem;
-  padding: 0.6rem 1.1rem;
-  border-radius: 14px;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  line-height: normal;
 }
 
 .nav-link:hover {
@@ -196,8 +201,8 @@ body::before {
 }
 
 .section-card {
-  margin-bottom: 4rem;
-  padding: 3rem;
+  margin-bottom: 2rem;
+  padding: 2.5rem 3rem;
 }
 
 .section-header {
@@ -223,18 +228,23 @@ body::before {
 .example-box {
   background: var(--example-bg);
   border-radius: 22px;
-  padding: 2.5rem;
-  margin: 2.5rem 0;
+  padding: 2rem;
+  margin: 1.5rem 0;
   border: 1.5px solid var(--border);
 }
 
 .example-title {
   font-weight: 800;
   color: var(--primary-light);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 1.5rem;
+  /* Math Blocks */
+}
+
+.math-block-container {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin: 0.75rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Buttons */
@@ -276,6 +286,11 @@ body::before {
 }
 
 /* Steps */
+/* Step Animations */
+.step-container {
+  margin-top: 1rem;
+}
+
 .step-item {
   display: flex;
   gap: 1.25rem;
