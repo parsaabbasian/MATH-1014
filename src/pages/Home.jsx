@@ -135,7 +135,7 @@ const Home = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '3rem' }}>
                     {/* Growth */}
                     <div className="example-box" style={{ margin: 0, borderTop: '6px solid var(--error)', borderLeft: 'none' }}>
-                        <div className="example-title" style={{ color: 'var(--error)' }}>Polynomial Growth</div>
+                        <div className="example-title" style={{ color: 'var(--error)' }}>A</div>
                         <MathBlock math="a_n = \frac{n^2}{n + 4}" block />
                         <StepByStep steps={[
                             <p>Rewrite via division: <MathBlock math="a_n = \frac{n}{1 + \frac{4}{n}}" inline />.</p>,
@@ -147,7 +147,7 @@ const Home = () => {
 
                     {/* Exponential */}
                     <div className="example-box" style={{ margin: 0, borderTop: '6px solid var(--success)', borderLeft: 'none' }}>
-                        <div className="example-title" style={{ color: 'var(--success)' }}>Exponential Decay</div>
+                        <div className="example-title" style={{ color: 'var(--success)' }}>B</div>
                         <MathBlock math="a_n = \frac{4^{n+1}}{7^n}" block />
                         <StepByStep steps={[
                             <p>Express in geometric form: <MathBlock math="a_n = 4 \cdot \left(\frac{4}{7}\right)^n" inline />.</p>,
@@ -159,7 +159,7 @@ const Home = () => {
 
                     {/* Abs Val */}
                     <div className="example-box" style={{ margin: 0, borderTop: '6px solid var(--primary)', borderLeft: 'none' }}>
-                        <div className="example-title" style={{ color: 'var(--primary)' }}>Absolute Value Theorem</div>
+                        <div className="example-title" style={{ color: 'var(--primary)' }}>C</div>
                         <MathBlock math="a_n = \frac{(-1)^n n^3}{n^4 + 6}" block />
                         <StepByStep steps={[
                             <p>Evaluate the absolute limit: <MathBlock math="\left| a_n \right| = \frac{n^3}{n^4+6}" inline />.</p>,
@@ -171,7 +171,7 @@ const Home = () => {
 
                     {/* Continuity */}
                     <div className="example-box" style={{ margin: 0, borderTop: '6px solid var(--secondary)', borderLeft: 'none' }}>
-                        <div className="example-title" style={{ color: 'var(--secondary)' }}>Continuity Principle</div>
+                        <div className="example-title" style={{ color: 'var(--secondary)' }}>D</div>
                         <MathBlock math="a_n = \sin\left(\frac{3}{n}\right)" block />
                         <StepByStep steps={[
                             <p>Input analysis: <MathBlock math="\lim_{n \to \infty} \frac{3}{n} = 0" inline />.</p>,
