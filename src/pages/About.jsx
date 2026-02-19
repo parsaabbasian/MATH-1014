@@ -71,15 +71,22 @@ const About = () => {
                         learning and understanding.
                     </p>
                 </motion.div>
-
-                <motion.div variants={itemVariants} className="example-box" style={{ margin: 0 }}>
-                    <div className="example-title">MATH 1014 Ready</div>
-                    <p style={{ color: 'var(--text-muted)' }}>
-                        Specifically tailored for the MATH 1014 curriculum,
-                        covering everything from infinite sequences to complex integration.
-                    </p>
-                </motion.div>
             </div>
+
+            <motion.section variants={itemVariants} className="section-card glass-card" style={{ marginTop: '2rem', textAlign: 'center' }}>
+                <div style={{ marginBottom: '1rem', color: 'var(--text-muted)' }}>
+                    Designed & Developed by
+                </div>
+                <a
+                    href="https://parsaabbasian.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gradient"
+                    style={{ fontSize: '1.5rem', textDecoration: 'none', fontWeight: '800' }}
+                >
+                    Parsa Abbasian
+                </a>
+            </motion.section>
 
         </motion.div>
     );
