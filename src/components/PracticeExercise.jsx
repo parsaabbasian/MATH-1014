@@ -65,7 +65,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                 )}
             </div>
 
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '2rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                 {question}
             </div>
 
@@ -143,7 +143,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                                                     style={{ background: 'rgba(255,255,255,0.03)' }}
                                                 >
                                                     <div className="step-number-circle" style={{ width: '24px', height: '24px', fontSize: '0.75rem' }}>{index + 1}</div>
-                                                    <div className="step-content-box" style={{ fontSize: '0.95rem' }}>
+                                                    <div className="step-content-box" style={{ fontSize: '0.95rem', overflowWrap: 'break-word', wordBreak: 'break-word', minWidth: 0 }}>
                                                         {step}
                                                     </div>
                                                 </motion.div>
