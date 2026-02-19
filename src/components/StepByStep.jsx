@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronRight, Eye } from 'lucide-react';
+import { ChevronDown, ChevronRight, Eye, RotateCcw } from 'lucide-react';
 
 const StepByStep = ({ steps }) => {
     const [visibleCount, setVisibleCount] = useState(0);
@@ -46,7 +46,8 @@ const StepByStep = ({ steps }) => {
                     </button>
                 ) : (
                     <button className="btn-reset" onClick={reset}>
-                        Reset Steps
+                        <RotateCcw size={16} />
+                        <span>Restart Solution</span>
                     </button>
                 )}
             </div>

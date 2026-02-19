@@ -39,7 +39,7 @@ const Home = () => {
                     11.1 <span className="text-gradient">Infinite Sequences</span>
                 </motion.h1>
                 <motion.p variants={itemVariants} className="hero-description">
-                    "A sequence can be thought of as a function whose domain is the set of positive integers."
+                    A sequence can be thought of as a function whose domain is the set of positive integers.
                 </motion.p>
             </header>
 
@@ -83,7 +83,7 @@ const Home = () => {
                         </div>
 
                         <StepByStep steps={[
-                            <p>Observe independent patterns: Numerators are simply <MathBlock math="n" inline />, while denominators grow as <MathBlock math="(n+2)^2" inline />.</p>,
+                            <p>Observe independent patterns: Numerators are simply <MathBlock math="n" inline /> while denominators grow as <MathBlock math="(n+2)^2" inline />.</p>,
                             <p>The sequence alternates signs starting with positive, requiring the factor <MathBlock math="(-1)^{n+1}" inline />.</p>,
                             <div>
                                 <p>Synthesize the explicit formula:</p>
@@ -189,7 +189,7 @@ const Home = () => {
             <footer style={{ marginTop: '10rem', textAlign: 'center', padding: '6rem 2rem', borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
                 <p style={{ color: 'var(--text)', fontWeight: '800', fontSize: '1.2rem', marginBottom: '0.75rem' }}>MATH 1014: Calculus II</p>
                 <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', fontFamily: 'var(--font-serif)', fontStyle: 'italic', maxWidth: '600px', margin: '0 auto' }}>
-                    "The laws of nature are but the mathematical thoughts of God." — Johannes Kepler
+                    Mathematics is the most beautiful and most powerful creation of the human spirit. — Stefan Banach
                 </p>
             </footer>
         </motion.div>
