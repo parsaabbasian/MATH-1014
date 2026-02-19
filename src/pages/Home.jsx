@@ -106,7 +106,7 @@ const Home = () => {
 
                 <div className="example-box">
                     <div className="example-title">Example 1.2</div>
-                    <p style={{ fontSize: '1.2rem', marginBottom: '2.5rem' }}>Where does this sequence end up as $n$ goes to infinity?</p>
+                    <p style={{ fontSize: '1.2rem', marginBottom: '2.5rem' }}>Where does this sequence end up as n goes to infinity?</p>
                     <div style={{ marginBottom: '2.5rem' }}>
                         <MathBlock math="a_n = \frac{2n^3}{n^3 + 5}" block />
                     </div>
@@ -114,7 +114,7 @@ const Home = () => {
                     <StepByStep steps={[
                         <p>Let's simplify by dividing both top and bottom by the biggest power, <MathBlock math="n^3" inline />.</p>,
                         <MathBlock math="a_n = \frac{2}{1 + \frac{5}{n^3}}" block />,
-                        <p>As $n$ gets huge, any number divided by $n$ (like <MathBlock math="\frac{5}{n^3}" inline />) becomes zero.</p>,
+                        <p>As n gets huge, any number divided by n (like <MathBlock math="\frac{5}{n^3}" inline />) becomes zero.</p>,
                         <MathBlock math="\lim_{n \to \infty} a_n = \frac{2}{1 + 0} = 2" block />,
                         <div className="result-banner">
                             Summary: The sequence converges to <strong>2</strong>.
@@ -138,7 +138,7 @@ const Home = () => {
                         <div className="example-title">Option A</div>
                         <MathBlock math="a_n = \frac{n^2}{n + 4}" block />
                         <StepByStep steps={[
-                            <p>Divide by $n$ to simplify: <MathBlock math="a_n = \frac{n}{1 + \frac{4}{n}}" inline />.</p>,
+                            <p>Divide by n to simplify: <MathBlock math="a_n = \frac{n}{1 + \frac{4}{n}}" inline />.</p>,
                             <p>The top keeps growing while the bottom stays near 1.</p>,
                             <MathBlock math="\lim_{n \to \infty} a_n = \infty" block />,
                             <div className="result-banner">Verdict: <strong>Divergent</strong> (Never stops growing!)</div>
@@ -173,7 +173,7 @@ const Home = () => {
                         <div className="example-title">Option D</div>
                         <MathBlock math="a_n = \sin\left(\frac{3}{n}\right)" block />
                         <StepByStep steps={[
-                            <p>As $n$ gets huge, the inside <MathBlock math="\frac{3}{n}" inline /> goes to 0.</p>,
+                            <p>As n gets huge, the inside <MathBlock math="\frac{3}{n}" inline /> goes to 0.</p>,
                             <p>The sine of 0 is just 0.</p>,
                             <MathBlock math="\lim_{n \to \infty} \sin\left(\frac{3}{n}\right) = \sin(0) = 0" block />,
                             <div className="result-banner">Verdict: <strong>Convergent</strong></div>
