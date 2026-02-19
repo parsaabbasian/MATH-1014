@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Info, Moon, Sun, FileText, Zap } from 'lucide-react';
+import { BookOpen, Info, Moon, Sun, FileText } from 'lucide-react';
 import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 
@@ -23,10 +23,6 @@ const Navbar = () => {
                     <Link to="/resources" className="nav-link">
                         <FileText size={20} />
                         <span>Resources</span>
-                    </Link>
-                    <Link to="/cheat-sheet" className="nav-link">
-                        <Zap size={20} />
-                        <span>Cheat Sheet</span>
                     </Link>
                     <Link to="/about" className="nav-link">
                         <Info size={20} />
