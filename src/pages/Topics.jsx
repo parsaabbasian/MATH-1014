@@ -110,14 +110,30 @@ const Topics = () => {
                         </div>
 
                         {topic.status === 'Available' ? (
-                            <Link
-                                to={topic.path}
-                                className="btn-reveal"
-                                style={{ width: 'fit-content', marginTop: 'auto', textDecoration: 'none', padding: '0.7rem 1.5rem' }}
-                            >
-                                <span>Study Now</span>
-                                <ArrowRight size={18} />
-                            </Link>
+                            <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto', flexWrap: 'wrap' }}>
+                                <Link
+                                    to={topic.path}
+                                    className="btn-reveal"
+                                    style={{ textDecoration: 'none', padding: '0.7rem 1.2rem', fontSize: '0.9rem' }}
+                                >
+                                    <span>Study Now</span>
+                                    <ArrowRight size={16} />
+                                </Link>
+                                <Link
+                                    to={`${topic.path}#challenges`}
+                                    className="btn-reset"
+                                    style={{ textDecoration: 'none', padding: '0.7rem 1.2rem', fontSize: '0.9rem', width: 'auto', border: '1.5px solid var(--border)' }}
+                                    onClick={() => {
+                                        setTimeout(() => {
+                                            const el = document.getElementById('challenges');
+                                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                        }, 100);
+                                    }}
+                                >
+                                    <Sparkles size={16} />
+                                    <span>More Questions</span>
+                                </Link>
+                            </div>
                         ) : (
                             <div
                                 className="btn-reset"

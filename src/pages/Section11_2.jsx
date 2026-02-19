@@ -35,13 +35,19 @@ const Section11_2 = () => {
         >
             <header className="hero-header">
                 <div className="hero-glow" />
-                <motion.div variants={itemVariants} className="hero-badge">
-                    <GraduationCap size={16} />
-                    <span>MATH 1014 | Calculus II</span>
-                </motion.div>
                 <motion.h1 variants={itemVariants} className="hero-title">
                     11.2 <span className="text-gradient">Infinite Series</span>
                 </motion.h1>
+                <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', marginTop: '2.5rem' }}>
+                    <button
+                        onClick={() => document.getElementById('challenges').scrollIntoView({ behavior: 'smooth' })}
+                        className="btn-reveal"
+                        style={{ padding: '0.8rem 1.8rem', fontSize: '1rem', cursor: 'pointer' }}
+                    >
+                        <Sparkles size={18} />
+                        <span>Try Challenges</span>
+                    </button>
+                </motion.div>
             </header>
 
             {/* Intro Section */}
@@ -112,7 +118,7 @@ const Section11_2 = () => {
             </motion.section>
 
             {/* More Examples Section */}
-            <motion.section variants={itemVariants} className="section-card glass-card" style={{ border: '2px solid var(--primary-light)' }}>
+            <motion.section id="challenges" variants={itemVariants} className="section-card glass-card" style={{ border: '2px solid var(--primary-light)' }}>
                 <div className="section-header">
                     <div className="section-icon-wrapper" style={{ background: 'var(--text)' }}>
                         <Sparkles size={28} style={{ color: 'var(--primary)' }} />
