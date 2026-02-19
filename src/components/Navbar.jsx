@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className="nav-container">
                 <Link to="/" className="nav-logo">
                     <Sigma className="logo-icon text-gradient" size={32} />
-                    <span className="logo-text">Calc<span className="text-gradient">Master</span></span>
+                    <span className="logo-text">MATH<span className="text-gradient"> 1014</span></span>
                 </Link>
 
                 <div className="nav-right">

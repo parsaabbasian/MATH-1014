@@ -31,7 +31,7 @@ const About = () => {
                 <div className="hero-glow" />
                 <motion.div variants={itemVariants} className="hero-badge">
                     <Sparkles size={16} />
-                    <span>About CalcMaster</span>
+                    <span>About MATH 1014</span>
                 </motion.div>
                 <motion.h1 variants={itemVariants} className="hero-title">
                     Mastering <span className="text-gradient">Calculus II</span>
@@ -46,7 +46,7 @@ const About = () => {
                     <h2 className="section-title">Our Mission</h2>
                 </div>
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
-                    CalcMaster was built with a simple goal: to make complex mathematical concepts intuitive and accessible.
+                    MATH 1014 was built with a simple goal: to make complex mathematical concepts intuitive and accessible.
                     We believe that every student has the potential to master Calculus when given the right tools and a clear,
                     interactive path to discovery.
                 </p>

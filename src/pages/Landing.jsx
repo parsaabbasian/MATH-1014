@@ -32,8 +32,8 @@ const Landing = () => {
             <header className="hero-header" style={{ padding: '2rem 0' }}>
                 <div className="hero-glow" />
                 <motion.div variants={itemVariants} className="hero-badge">
-                    <GraduationCap size={16} />
-                    <span>Specifically for York University Students</span>
+                    <Sparkles size={16} />
+                    <span>About MATH 1014</span>
                 </motion.div>
                 <motion.h1 variants={itemVariants} className="hero-title">
                     Master <span className="text-gradient">Calculus II</span> <br /> with Confidence
@@ -78,7 +78,7 @@ const Landing = () => {
 
             <div style={{ marginTop: '4rem', padding: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                 <div className="glass-card" style={{ padding: '0.6rem 2rem', borderRadius: '100px', fontSize: '0.85rem', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
-                    © 2026 CalcMaster | MATH 1014 Practice Suite
+                    © 2026 MATH 1014 | York Practice
                 </div>
             </div>
         </motion.div>
