@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import TelegramIntegration from './components/TelegramIntegration';
 import Section11_1 from './pages/Section11_1';
 import About from './pages/About';
 import Topics from './pages/Topics';
@@ -14,6 +15,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <TelegramIntegration />
         <div className="app-container">
           <Navbar />
           <main>
