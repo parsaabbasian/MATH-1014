@@ -25,6 +25,8 @@
   --example-bg: rgba(168, 85, 247, 0.03);
   --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
   --glass-border: rgba(168, 85, 247, 0.2);
+  --success: #22c55e;
+  --error: #ef4444;
 }
 
 [data-theme='light'] {
@@ -39,6 +41,8 @@
   --example-bg: rgba(139, 92, 246, 0.05);
   --card-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.1);
   --glass-border: rgba(139, 92, 246, 0.25);
+  --success: #16a34a;
+  --error: #dc2626;
 }
 
 * {
@@ -318,6 +322,9 @@ body::before {
   flex: 1;
   border: 1px solid var(--border);
   font-weight: 600;
+  font-family: var(--font-sans) !important;
+  color: var(--text);
+  line-height: 1.6;
 }
 
 .result-banner {

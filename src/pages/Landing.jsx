@@ -36,7 +36,7 @@ const Landing = () => {
                 <div className="hero-glow" />
                 <motion.div variants={itemVariants} className="hero-badge">
                     <Sparkles size={16} />
-                    <span>About MATH 1014 Suite</span>
+                    <span>About MATH 1014</span>
                 </motion.div>
                 <motion.h1 variants={itemVariants} className="hero-title">
                     Master <span className="text-gradient">Calculus II</span> <br /> with Confidence
