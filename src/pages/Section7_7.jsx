@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import MathBlock from '../components/MathBlock';
 import StepByStep from '../components/StepByStep';
 import PracticeExercise from '../components/PracticeExercise';
+import GraphVisualizer from '../components/GraphVisualizer';
 import { Calculator, Sparkles, Zap, Layout, GraduationCap, ArrowRight } from 'lucide-react';
 
 const Section7_7 = () => {
@@ -93,18 +94,23 @@ const Section7_7 = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                     <div className="example-box" style={{ margin: 0 }}>
                         <div className="example-title">Left Endpoint Rule (Lₙ)</div>
-                        <p>Choose <MathBlock math="x_i^* = x_{i-1}" inline /></p>
+                        <GraphVisualizer type="left" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
+                        <p style={{ marginTop: '1rem' }}>Choose <MathBlock math="x_i^* = x_{i-1}" inline /></p>
                         <MathBlock math="L_n = \sum_{i=1}^{n} f(x_{i-1})\Delta x" block />
                     </div>
                     <div className="example-box" style={{ margin: 0 }}>
                         <div className="example-title">Right Endpoint Rule (Rₙ)</div>
-                        <p>Choose <MathBlock math="x_i^* = x_i" inline /></p>
+                        <GraphVisualizer type="right" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
+                        <p style={{ marginTop: '1rem' }}>Choose <MathBlock math="x_i^* = x_i" inline /></p>
                         <MathBlock math="R_n = \sum_{i=1}^{n} f(x_i)\Delta x" block />
                     </div>
                 </div>
 
                 <div className="example-box" style={{ marginTop: '2rem' }}>
                     <div className="example-title">Midpoint Rule (Mₙ)</div>
+                    <div style={{ maxWidth: '500px', margin: '0 auto 1.5rem' }}>
+                        <GraphVisualizer type="mid" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
+                    </div>
                     <p>Choose midpoints <MathBlock math="\bar{x}_i = \frac{x_{i-1} + x_i}{2}" inline /></p>
                     <MathBlock math="M_n = \sum_{i=1}^{n} f(\bar{x}_i)\Delta x" block />
                 </div>
@@ -122,6 +128,9 @@ const Section7_7 = () => {
                 <MathBlock math="T_n = \frac{1}{2}(L_n + R_n)" block />
                 <div className="example-box">
                     <div className="example-title">Computational Formula</div>
+                    <div style={{ maxWidth: '500px', margin: '0 auto 1.5rem' }}>
+                        <GraphVisualizer type="trap" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
+                    </div>
                     <MathBlock math="T_n = \frac{\Delta x}{2} [f(x_0) + 2f(x_1) + 2f(x_2) + \dots + 2f(x_{n-1}) + f(x_n)]" block />
                 </div>
             </motion.section>
