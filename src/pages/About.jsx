@@ -75,7 +75,7 @@ const About = () => {
                 <motion.div variants={itemVariants} className="example-box" style={{ margin: 0 }}>
                     <div className="example-title">MATH 1014 Ready</div>
                     <p style={{ color: 'var(--text-muted)' }}>
-                        Specifically tailored for the MATH 1014 curriculum at York University,
+                        Specifically tailored for the MATH 1014 curriculum,
                         covering everything from infinite sequences to complex integration.
                     </p>
                 </motion.div>
@@ -83,7 +83,7 @@ const About = () => {
 
             <div style={{ marginTop: '3rem', padding: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                 <div className="glass-card" style={{ padding: '0.6rem 2rem', borderRadius: '100px', fontSize: '0.85rem', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
-                    Built for York Students
+                    Mastery Awaits
                 </div>
             </div>
         </motion.div>

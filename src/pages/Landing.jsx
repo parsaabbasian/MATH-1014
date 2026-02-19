@@ -36,7 +36,7 @@ const Landing = () => {
                 <div className="hero-glow" />
                 <motion.div variants={itemVariants} className="hero-badge">
                     <Sparkles size={16} />
-                    <span>About MATH 1014</span>
+                    <span>About MATH 1014 Suite</span>
                 </motion.div>
                 <motion.h1 variants={itemVariants} className="hero-title">
                     Master <span className="text-gradient">Calculus II</span> <br /> with Confidence
@@ -72,7 +72,7 @@ const Landing = () => {
                         <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                             <ShieldAlert size={20} style={{ color: 'var(--secondary-light)', flexShrink: 0, marginTop: '0.2rem' }} />
                             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                                <strong>Not from Lecture Notes:</strong> The problems shown here are independent practice sets and are <strong>not</strong> taken from official York University lecture notes or examinations.
+                                <strong>Not from Lecture Notes:</strong> The problems shown here are independent practice sets and are <strong>not</strong> taken from official lecture notes or examinations.
                             </p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const Landing = () => {
 
             <div style={{ marginTop: '4rem', padding: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                 <div className="glass-card" style={{ padding: '0.6rem 2rem', borderRadius: '100px', fontSize: '0.85rem', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
-                    © 2026 MATH 1014 | York Practice
+                    © 2026 MATH 1014 | Practice Suite
                 </div>
             </div>
         </motion.div>

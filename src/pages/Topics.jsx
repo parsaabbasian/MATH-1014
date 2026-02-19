@@ -20,22 +20,6 @@ const Topics = () => {
             path: "/11-2",
             icon: <Target size={24} />,
             status: "Available"
-        },
-        {
-            id: "11.3",
-            title: "The Integral Test",
-            description: "Using integration to determine the convergence of positive series.",
-            path: "/11-3",
-            icon: <Layout size={24} />,
-            status: "Coming Soon"
-        },
-        {
-            id: "11.4",
-            title: "Comparison Tests",
-            description: "Compare series to known ones to determine their behavior.",
-            path: "/11-4",
-            icon: <BookOpen size={24} />,
-            status: "Coming Soon"
         }
     ];
 
