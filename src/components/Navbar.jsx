@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Info, Moon, Sun, FileText } from 'lucide-react';
+import { BookOpen, Info, Moon, Sun, FileText, Zap } from 'lucide-react';
 import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 

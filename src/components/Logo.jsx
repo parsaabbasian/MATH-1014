@@ -13,12 +13,12 @@ const Logo = ({ size = 32, color = 'var(--primary-light)' }) => {
             <rect width="100" height="100" rx="20" fill="url(#logo-gradient)" />
             <path
                 d="M30 70 L50 30 L70 70"
-                stroke="white"
+                stroke="#f3e8ff"
                 strokeWidth="8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
-            <circle cx="50" cy="45" r="5" fill="white" />
+            <circle cx="50" cy="45" r="5" fill="#f3e8ff" />
             <defs>
                 <linearGradient id="logo-gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
                     <stop stopColor="#9333ea" />
