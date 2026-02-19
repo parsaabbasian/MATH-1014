@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 import Section11_2 from './pages/Section11_2';
 import Section7_7 from './pages/Section7_7';
 import Resources from './pages/Resources';
+import CheatSheet from './pages/CheatSheet';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <Route path="/11-2" element={<Section11_2 />} />
               <Route path="/7-7" element={<Section7_7 />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/cheat-sheet" element={<CheatSheet />} />
               <Route path="/topics" element={<Topics />} />
               <Route path="/about" element={<About />} />
             </Routes>

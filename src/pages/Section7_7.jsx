@@ -179,7 +179,9 @@ const Section7_7 = () => {
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question="Use Midpoint Rule with n=1 to approximate \int_0^2 (x^2+1)dx."
+                        question={
+                            <span>Use Midpoint Rule with <MathBlock math="n=1" inline /> to approximate <MathBlock math="\int_0^2 (x^2+1)dx" inline />.</span>
+                        }
                         correctAnswer="4"
                         steps={[
                             "Δx = (2-0)/1 = 2.",
@@ -190,7 +192,9 @@ const Section7_7 = () => {
                     />
                     <PracticeExercise
                         difficulty="Medium"
-                        question="For \int_0^1 x^2 dx with n=2, find T_2."
+                        question={
+                            <span>For <MathBlock math="\int_0^1 x^2 dx" inline /> with <MathBlock math="n=2" inline />, find <MathBlock math="T_2" inline />.</span>
+                        }
                         correctAnswer="0.375"
                         steps={[
                             "Δx = (1-0)/2 = 0.5.",

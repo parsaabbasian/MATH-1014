@@ -42,7 +42,7 @@ const Landing = () => {
                     Master <span className="text-gradient">Calculus II</span> <br /> with Confidence
                 </motion.h1>
                 <motion.p variants={itemVariants} className="hero-description" style={{ maxWidth: '600px', margin: '0 auto 2.5rem' }}>
-                    Interactive step-by-step guides for MATH 1014. Explore complex sequences and series through modern, AI-powered discovery.
+                    Interactive step-by-step guides for MATH 1014. Explore complex Calculus II concepts through modern, AI-powered discovery.
                 </motion.p>
 
                 <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>

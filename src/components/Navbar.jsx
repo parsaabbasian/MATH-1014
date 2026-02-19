@@ -24,6 +24,10 @@ const Navbar = () => {
                         <FileText size={20} />
                         <span>Resources</span>
                     </Link>
+                    <Link to="/cheat-sheet" className="nav-link">
+                        <Zap size={20} />
+                        <span>Cheat Sheet</span>
+                    </Link>
                     <Link to="/about" className="nav-link">
                         <Info size={20} />
                         <span>About</span>
