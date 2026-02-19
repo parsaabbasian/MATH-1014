@@ -5,7 +5,7 @@ import StepByStep from '../components/StepByStep';
 import PracticeExercise from '../components/PracticeExercise';
 import { MousePointer2, Zap, Layout, GraduationCap, Sparkles } from 'lucide-react';
 
-const Home = () => {
+const Section11_1 = () => {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -228,4 +228,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Section11_1;

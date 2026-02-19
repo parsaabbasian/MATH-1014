@@ -131,24 +131,27 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                             </div>
 
                             <div className="steps-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                                {steps.map((step, index) => (
-                                    <AnimatePresence key={index}>
-                                        {(index < visibleStepCount || status === 'correct') && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.4 }}
-                                                className="step-item"
-                                                style={{ background: 'rgba(255,255,255,0.03)' }}
-                                            >
-                                                <div className="step-number-circle" style={{ width: '24px', height: '24px', fontSize: '0.75rem' }}>{index + 1}</div>
-                                                <div className="step-content-box" style={{ fontSize: '0.95rem' }}>
-                                                    {typeof step === 'string' ? <MathBlock math={step} inline /> : step}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                ))}
+                                {steps.map((step, index) => {
+                                    const isStepVisible = status === 'correct' || index < visibleStepCount;
+                                    return (
+                                        <AnimatePresence key={index}>
+                                            {isStepVisible && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.4 }}
+                                                    className="step-item"
+                                                    style={{ background: 'rgba(255,255,255,0.03)' }}
+                                                >
+                                                    <div className="step-number-circle" style={{ width: '24px', height: '24px', fontSize: '0.75rem' }}>{index + 1}</div>
+                                                    <div className="step-content-box" style={{ fontSize: '0.95rem' }}>
+                                                        {typeof step === 'string' ? <MathBlock math={step} inline /> : step}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    );
+                                })}
                             </div>
 
                             {status !== 'correct' && visibleStepCount < steps.length && (
