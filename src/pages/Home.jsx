@@ -58,18 +58,18 @@ const Home = () => {
 
                     <div style={{ marginTop: '1.5rem' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(99, 102, 241, 0.05)', padding: '1.25rem', borderRadius: '12px', border: '1px solid rgba(99, 102, 241, 0.1)' }}>
-                            <span style={{ fontWeight: 'bold' }}>A)</span> <MathBlock math="\{ 2, 1/2, 1/8, 1/32, 1/128, \dots \}" block />
+                            <span style={{ fontWeight: 'bold' }}>A)</span> <MathBlock math="\left\{ 2, \frac{1}{2}, \frac{1}{8}, \frac{1}{32}, \frac{1}{128}, \dots \right\}" block />
                         </div>
 
                         <StepByStep steps={[
-                            <p>Observe the ratio between consecutive terms: <MathBlock math="\frac{a_{n+1}}{a_n} = \frac{1/2}{2} = \frac{1}{4}" inline />.</p>,
-                            <p>Identify this as a <strong>geometric sequence</strong> with initial term <MathBlock math="a_1 = 2" inline /> and common ratio <MathBlock math="r = 1/4" inline />.</p>,
+                            <p>Observe the ratio between consecutive terms: <MathBlock math="\frac{a_{n+1}}{a_n} = \frac{\frac{1}{2}}{2} = \frac{1}{4}" inline />.</p>,
+                            <p>Identify this as a <strong>geometric sequence</strong> with initial term <MathBlock math="a_1 = 2" inline /> and common ratio <MathBlock math="r = \frac{1}{4}" inline />.</p>,
                             <div>
                                 <p>Construct the general formula using <MathBlock math="a_n = a_1 r^{n-1}" inline />:</p>
                                 <MathBlock math="a_n = 2\left(\frac{1}{4}\right)^{n-1}" block />
                             </div>,
                             <div style={{ background: 'rgba(34, 197, 94, 0.1)', padding: '1.25rem', borderRadius: '12px', borderLeft: '4px solid var(--success)', marginTop: '1rem' }}>
-                                <span style={{ color: 'var(--success)', fontWeight: 'bold' }}>Behavior:</span> Since <MathBlock math="|r| < 1" inline />, the terms approach zero.
+                                <span style={{ color: 'var(--success)', fontWeight: 'bold' }}>Behavior:</span> Since <MathBlock math="\left| r \right| < 1" inline />, the terms approach zero.
                                 <MathBlock math="\lim_{n \to \infty} a_n = 0 \implies \text{Convergent}" block />
                             </div>
                         ]} />
@@ -77,7 +77,7 @@ const Home = () => {
 
                     <div style={{ marginTop: '4rem', paddingTop: '2.5rem', borderTop: '1px solid var(--border)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: 'rgba(168, 85, 247, 0.05)', padding: '1.25rem', borderRadius: '12px', border: '1px solid rgba(168, 85, 247, 0.1)' }}>
-                            <span style={{ fontWeight: 'bold' }}>B)</span> <MathBlock math="\{ \frac{1}{9}, -\frac{2}{16}, \frac{3}{25}, -\frac{4}{36}, \frac{5}{49}, \dots \}" block />
+                            <span style={{ fontWeight: 'bold' }}>B)</span> <MathBlock math="\left\{ \frac{1}{9}, -\frac{2}{16}, \frac{3}{25}, -\frac{4}{36}, \frac{5}{49}, \dots \right\}" block />
                         </div>
 
                         <StepByStep steps={[
@@ -89,7 +89,7 @@ const Home = () => {
                             </div>,
                             <div style={{ background: 'rgba(34, 197, 94, 0.1)', padding: '1.25rem', borderRadius: '12px', borderLeft: '4px solid var(--success)', marginTop: '1rem' }}>
                                 <span style={{ color: 'var(--success)', fontWeight: 'bold' }}>Behavior:</span> The alternating values oscillate but their magnitude vanishes.
-                                <MathBlock math="\lim_{n \to \infty} |a_n| = \lim_{n \to \infty} \frac{n}{n^2+4n+4} = 0 \implies \text{Convergent}" block />
+                                <MathBlock math="\lim_{n \to \infty} \left| a_n \right| = \lim_{n \to \infty} \frac{n}{n^2+4n+4} = 0 \implies \text{Convergent}" block />
                             </div>
                         ]} />
                     </div>
@@ -137,7 +137,7 @@ const Home = () => {
                         <div className="example-title" style={{ color: 'var(--error)' }}>Growth Analysis</div>
                         <MathBlock math="a_n = \frac{n^2}{n + 4}" block />
                         <StepByStep steps={[
-                            <p>Simplify by division: <MathBlock math="a_n = \frac{n}{1 + 4/n}" inline />.</p>,
+                            <p>Simplify by division: <MathBlock math="a_n = \frac{n}{1 + \frac{4}{n}}" inline />.</p>,
                             <p>Observe the behavior as <MathBlock math="n \to \infty" inline />: Numerator <MathBlock math="\to \infty" inline /> while denominator <MathBlock math="\to 1" inline />.</p>,
                             <MathBlock math="\lim_{n \to \infty} a_n = \infty" block />,
                             <div style={{ color: 'var(--error)', fontWeight: '800', textAlign: 'center', fontSize: '1.2rem', letterSpacing: '2px' }}>DIVERGENT</div>
@@ -150,7 +150,7 @@ const Home = () => {
                         <MathBlock math="a_n = \frac{4^{n+1}}{7^n}" block />
                         <StepByStep steps={[
                             <p>Rewrite as a standard geometric form: <MathBlock math="a_n = 4 \cdot \left(\frac{4}{7}\right)^n" inline />.</p>,
-                            <p>Note that the base <MathBlock math="4/7 < 1" inline />, implying a vanishing limit.</p>,
+                            <p>Note that the base <MathBlock math="\left| \frac{4}{7} \right| < 1" inline />, implying a vanishing limit.</p>,
                             <MathBlock math="\lim_{n \to \infty} a_n = 4 \cdot 0 = 0" block />,
                             <div style={{ color: 'var(--success)', fontWeight: '800', textAlign: 'center', fontSize: '1.2rem', letterSpacing: '2px' }}>CONVERGENT</div>
                         ]} />
@@ -161,9 +161,9 @@ const Home = () => {
                         <div className="example-title" style={{ color: 'var(--primary)' }}>Absolute Value Test</div>
                         <MathBlock math="a_n = \frac{(-1)^n n^3}{n^4 + 6}" block />
                         <StepByStep steps={[
-                            <p>Consider the absolute sequence: <MathBlock math="|a_n| = \frac{n^3}{n^4+6}" inline />.</p>,
+                            <p>Consider the absolute sequence: <MathBlock math="\left| a_n \right| = \frac{n^3}{n^4+6}" inline />.</p>,
                             <p>Using leading coefficients: <MathBlock math="\lim_{n \to \infty} \frac{n^3}{n^4} = \lim_{n \to \infty} \frac{1}{n} = 0" inline />.</p>,
-                            <p>By the Theorem: If <MathBlock math="\lim |a_n| = 0" inline />, then <MathBlock math="\lim a_n = 0" inline />.</p>,
+                            <p>By the Theorem: If <MathBlock math="\lim_{n \to \infty} \left| a_n \right| = 0" inline />, then <MathBlock math="\lim_{n \to \infty} a_n = 0" inline />.</p>,
                             <div style={{ color: 'var(--success)', fontWeight: '800', textAlign: 'center' }}>CONVERGENT TO 0</div>
                         ]} />
                     </div>
@@ -171,11 +171,11 @@ const Home = () => {
                     {/* Test 4 */}
                     <div className="example-box" style={{ margin: 0, borderTop: '4px solid var(--secondary)', borderLeft: 'none' }}>
                         <div className="example-title" style={{ color: 'var(--secondary)' }}>Continuity Test</div>
-                        <MathBlock math="a_n = \sin(3/n)" block />
+                        <MathBlock math="a_n = \sin\left(\frac{3}{n}\right)" block />
                         <StepByStep steps={[
                             <p>Evaluate the inner limit first: <MathBlock math="\lim_{n \to \infty} \frac{3}{n} = 0" inline />.</p>,
                             <p>Since sine is continuous at 0, we can evaluate the function at the limit.</p>,
-                            <MathBlock math="\lim_{n \to \infty} \sin(3/n) = \sin(0) = 0" block />,
+                            <MathBlock math="\lim_{n \to \infty} \sin\left(\frac{3}{n}\right) = \sin(0) = 0" block />,
                             <div style={{ color: 'var(--success)', fontWeight: '800', textAlign: 'center' }}>CONVERGENT</div>
                         ]} />
                     </div>
