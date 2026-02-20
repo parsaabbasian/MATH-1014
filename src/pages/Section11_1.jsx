@@ -105,13 +105,84 @@ const Section11_1 = () => {
                 </div>
             </motion.section>
 
-            {/* Part 2: Finding a limit */}
+            {/* Part 2: Key Definitions & Limit Laws */}
+            <motion.section variants={itemVariants} className="section-card glass-card">
+                <div className="section-header">
+                    <div className="section-icon-wrapper">
+                        <GraduationCap size={28} />
+                    </div>
+                    <h2 className="section-title">II. Limits & Core Theorems</h2>
+                </div>
+
+                <div className="example-box">
+                    <div className="example-title">Sequence Convergence</div>
+                    <p style={{ fontSize: '1.2rem', marginBottom: '1.5rem' }}>
+                        A sequence <MathBlock math="\{a_n\}" inline /> has the limit <MathBlock math="L" inline /> if:
+                    </p>
+                    <MathBlock math="\lim_{n\to\infty} a_n = L" block />
+                    <p style={{ marginTop: '1.5rem' }}>
+                        If the limit exists, we say the sequence is <strong>convergent</strong> (or converges). Otherwise, we say the sequence is <strong>divergent</strong> (or diverges).
+                    </p>
+                    <div style={{ marginTop: '1.5rem', background: 'var(--bg)', padding: '1.5rem', borderRadius: '16px', borderLeft: '4px solid var(--primary)' }}>
+                        <p style={{ margin: 0 }}>
+                            <strong>Function Theorem:</strong> If <MathBlock math="\lim_{x \to \infty} f(x) = L" inline /> and <MathBlock math="f(n) = a_n" inline />, where <MathBlock math="n" inline /> is an integer, then <MathBlock math="\lim_{n \to \infty} a_n = L" inline />.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="example-box" style={{ marginTop: '2.5rem' }}>
+                    <div className="example-title">Limit Laws</div>
+                    <p style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
+                        If <MathBlock math="\{a_n\}" inline /> and <MathBlock math="\{b_n\}" inline /> are convergent sequences and <MathBlock math="c" inline /> is a constant, then:
+                    </p>
+                    <div style={{ display: 'grid', gap: '1.5rem' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
+                                <MathBlock math="\lim_{n\to\infty} (a_n \pm b_n) = \lim_{n\to\infty} a_n \pm \lim_{n\to\infty} b_n" block />
+                            </div>
+                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
+                                <MathBlock math="\lim_{n\to\infty} ca_n = c\lim_{n\to\infty} a_n" block />
+                            </div>
+                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
+                                <MathBlock math="\lim_{n\to\infty} (a_n b_n) = \lim_{n\to\infty} a_n \cdot \lim_{n\to\infty} b_n" block />
+                            </div>
+                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
+                                <MathBlock math="\lim_{n\to\infty} \frac{a_n}{b_n} = \frac{\lim_{n\to\infty} a_n}{\lim_{n\to\infty} b_n}" block />
+                            </div>
+                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
+                                <MathBlock math="\lim_{n\to\infty} a_n^p = \left( \lim_{n\to\infty} a_n \right)^p \quad \text{if } p > 0 \text{ and } a_n > 0" block />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="example-box" style={{ marginTop: '2.5rem' }}>
+                    <div className="example-title">Special Theorems</div>
+                    <div style={{ display: 'grid', gap: '1.5rem', marginTop: '1.5rem' }}>
+                        <div style={{ background: 'var(--bg)', padding: '1.5rem', borderRadius: '16px', borderLeft: '4px solid var(--accent)' }}>
+                            <p style={{ margin: 0 }}>
+                                <strong>Absolute Value Theorem:</strong> If <MathBlock math="\lim_{n\to\infty} |a_n| = 0" inline />, then <MathBlock math="\lim_{n\to\infty} a_n = 0" inline />.
+                            </p>
+                        </div>
+                        <div style={{ background: 'var(--bg)', padding: '1.5rem', borderRadius: '16px', borderLeft: '4px solid var(--success)' }}>
+                            <p style={{ margin: 0 }}>
+                                <strong>Continuous Function Theorem:</strong> If <MathBlock math="\lim_{n\to\infty} a_n = L" inline /> and <MathBlock math="f" inline /> is a continuous function at <MathBlock math="L" inline />, then:
+                            </p>
+                            <div style={{ marginTop: '1rem' }}>
+                                <MathBlock math="\lim_{n\to\infty} f(a_n) = f\left(\lim_{n\to\infty} a_n\right) = f(L)" block />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </motion.section>
+
+            {/* Part 3: Finding a limit */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <Zap size={28} />
                     </div>
-                    <h2 className="section-title">II. Solving for Limits</h2>
+                    <h2 className="section-title">III. Solving for Limits</h2>
                 </div>
 
                 <div className="example-box">
@@ -133,13 +204,13 @@ const Section11_1 = () => {
                 </div>
             </motion.section>
 
-            {/* Part 3: Quick Tests */}
+            {/* Part 4: Quick Tests */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <MousePointer2 size={28} />
                     </div>
-                    <h2 className="section-title">III. Quick Tests</h2>
+                    <h2 className="section-title">IV. Quick Tests</h2>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem' }}>
