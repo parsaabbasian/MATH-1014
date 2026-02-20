@@ -171,6 +171,28 @@ const Section11_1 = () => {
                         <div className="result-banner">Verdict: Converges to <strong>0</strong></div>
                     ]} />
                 </div>
+
+                <div className="example-box" style={{ marginTop: '3rem' }}>
+                    <div className="example-title">Example 1.4: Alternating Sequences</div>
+                    <p>Determine whether the sequence <MathBlock math="a_n = \frac{(-1)^n n^2}{n^3 + 2n^2 + 1}" inline /> converges or diverges.</p>
+                    <StepByStep steps={[
+                        <span>Apply the <strong>Absolute Value Theorem</strong>. First, evaluate <MathBlock math="\lim_{n\to\infty} |a_n|" inline />.</span>,
+                        <MathBlock math="\lim_{n\to\infty} \frac{n^2}{n^3 + 2n^2 + 1} = \lim_{n\to\infty} \frac{1/n}{1 + 2/n + 1/n^3}" block />,
+                        <span>The limit is <MathBlock math="\frac{0}{1 + 0 + 0} = 0" inline />.</span>,
+                        <div className="result-banner">Since <MathBlock math="\lim |a_n| = 0" inline />, then <MathBlock math="\lim a_n = 0" inline />. The sequence converges to 0.</div>
+                    ]} />
+                </div>
+
+                <div className="example-box" style={{ marginTop: '3rem' }}>
+                    <div className="example-title">Example 1.5: Continuous Functions</div>
+                    <p>Find the limit of <MathBlock math="a_n = \cos\left(\frac{2}{n}\right)" inline />.</p>
+                    <StepByStep steps={[
+                        <span>Since cosine is a <strong>continuous function</strong>, we can move the limit inside.</span>,
+                        <MathBlock math="\lim_{n \to \infty} \cos\left(\frac{2}{n}\right) = \cos\left( \lim_{n \to \infty} \frac{2}{n} \right)" block />,
+                        <span>The inside limit is 0, so <MathBlock math="\cos(0) = 1" inline />.</span>,
+                        <div className="result-banner">Verdict: The sequence converges to <strong>1</strong>.</div>
+                    ]} />
+                </div>
             </motion.section>
 
             {/* Challenges Section */}
