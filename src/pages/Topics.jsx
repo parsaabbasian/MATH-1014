@@ -90,7 +90,7 @@ const Topics = () => {
                 </motion.p>
 
                 {/* Chapter Filter */}
-                <motion.div variants={itemVariants} style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '3rem' }}>
+                <motion.div variants={itemVariants} style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
                     {chapters.map((chapter) => (
                         <button
                             key={chapter}
@@ -118,7 +118,7 @@ const Topics = () => {
 
             <motion.div
                 layout
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}
             >
                 <AnimatePresence mode='popLayout'>
                     {filteredTopics.map((topic) => (

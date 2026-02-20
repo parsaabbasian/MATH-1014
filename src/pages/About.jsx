@@ -55,7 +55,7 @@ const About = () => {
                 </p>
             </motion.section>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
                 <motion.div variants={itemVariants} className="example-box" style={{ margin: 0 }}>
                     <div className="example-title">Interactive Learning</div>
                     <p style={{ color: 'var(--text-muted)' }}>

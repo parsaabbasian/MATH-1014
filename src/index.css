@@ -68,6 +68,8 @@ body {
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.7;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
 }
 
 body::before {
@@ -224,19 +226,26 @@ body::before {
 .section-card {
   margin-bottom: 2rem;
   padding: 2.5rem 3rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .section-card {
+    padding: 1.75rem;
+  }
 }
 
 @media (max-width: 640px) {
   .section-card {
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
   }
 
   .section-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .nav-logo {
@@ -299,9 +308,11 @@ body::before {
   font-size: 0.9rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.7rem;
   cursor: pointer;
   border: none;
+  white-space: nowrap;
 }
 
 .btn-reveal {

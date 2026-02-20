@@ -42,7 +42,7 @@ const Section11_2 = () => {
                 <motion.h1 variants={itemVariants} className="hero-title">
                     11.2 <span className="text-gradient">Infinite Series</span>
                 </motion.h1>
-                <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', marginTop: '2.5rem' }}>
+                <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', marginTop: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                     <button
                         onClick={() => document.getElementById('challenges').scrollIntoView({ behavior: 'smooth' })}
                         className="btn-reveal"
