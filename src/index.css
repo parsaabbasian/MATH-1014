@@ -27,6 +27,7 @@
   --glass-border: rgba(168, 85, 247, 0.2);
   --success: #22c55e;
   --error: #ef4444;
+  --primary-gradient: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
 }
 
 [data-theme='light'] {
@@ -43,6 +44,7 @@
   --glass-border: rgba(139, 92, 246, 0.25);
   --success: #16a34a;
   --error: #dc2626;
+  --primary-gradient: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%);
 }
 
 * {

@@ -91,12 +91,14 @@ const Topics = () => {
                             style={{
                                 padding: '0.6rem 2rem',
                                 fontSize: '0.9rem',
-                                border: activeChapter === chapter ? 'none' : '1.5px solid var(--border)',
-                                background: activeChapter === chapter ? 'var(--primary-gradient)' : 'transparent',
                                 borderRadius: '12px',
                                 display: 'flex',
                                 alignItems: 'center',
-                                gap: '8px'
+                                gap: '8px',
+                                background: activeChapter === chapter ? 'var(--primary-gradient)' : 'var(--surface)',
+                                color: activeChapter === chapter ? 'white' : 'var(--text-muted)',
+                                border: activeChapter === chapter ? 'none' : '1.5px solid var(--border)',
+                                boxShadow: activeChapter === chapter ? '0 10px 20px -5px var(--primary-glow)' : 'none'
                             }}
                         >
                             <Layers size={16} />
