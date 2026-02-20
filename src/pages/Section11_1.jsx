@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import MathBlock from '../components/MathBlock';
 import StepByStep from '../components/StepByStep';
 import PracticeExercise from '../components/PracticeExercise';
-import { MousePointer2, Zap, Layout, GraduationCap, Sparkles } from 'lucide-react';
+import { MousePointer2, Zap, Layout, GraduationCap, Sparkles, Activity } from 'lucide-react';
 
 const Section11_1 = () => {
     const containerVariants = {
@@ -50,62 +50,54 @@ const Section11_1 = () => {
                 </motion.div>
             </header>
 
-            {/* Part 1: Finding a formula */}
+            {/* I. Introduction to Sequences */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <Layout size={28} />
                     </div>
-                    <h2 className="section-title">I. Pattern Recognition</h2>
+                    <h2 className="section-title">I. Definition of a Sequence</h2>
                 </div>
 
-                <div className="example-box">
-                    <div className="example-title">Example 1.1</div>
-                    <p style={{ marginBottom: '2rem', fontSize: '1.2rem' }}>
-                        Let's find the formula <MathBlock math="a_n" inline /> for these sequences and check if they settle down to a value.
+                <div className="example-box" style={{ background: 'rgba(59, 130, 246, 0.05)', border: '1.5px solid rgba(59, 130, 246, 0.2)' }}>
+                    <p style={{ fontSize: '1.1rem' }}>
+                        A <strong>sequence</strong> is a set of numbers written in a definite order:
                     </p>
+                    <MathBlock math="a_1, a_2, a_3, \dots, a_n, \dots" block />
+                    <p style={{ marginTop: '1rem' }}>
+                        The sequence <MathBlock math="\{a_1, a_2, a_3, \dots, a_n, \dots\}" inline /> is also denoted by <MathBlock math="\{a_n\}" inline /> or <MathBlock math="\{a_n\}_{n=1}^{\infty}" inline />.
+                    </p>
+                </div>
 
-                    <div style={{ marginTop: '2rem' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'var(--bg)', padding: '1.75rem', borderRadius: '22px', border: '1.5px solid var(--border)' }}>
-                            <span style={{ fontWeight: '900', color: 'var(--primary-light)', fontSize: '1.2rem' }}>A</span>
-                            <MathBlock math="\left\{ 2, \frac{1}{2}, \frac{1}{8}, \frac{1}{32}, \frac{1}{128}, \dots \right\}" block />
+                <div className="example-box" style={{ marginTop: '2.5rem' }}>
+                    <div className="example-title">Example 1.1: General Terms</div>
+                    <p style={{ marginBottom: '2rem' }}>Let's find the general term <MathBlock math="a_n" inline /> for these sequences:</p>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+                        <div className="glass-card" style={{ padding: '1.5rem' }}>
+                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>A. Powers of 1/3</div>
+                            <MathBlock math="\left\{ 1, \frac{1}{3}, \frac{1}{9}, \frac{1}{27}, \dots \right\}" block />
+                            <StepByStep steps={[
+                                <span>Look for a pattern: <MathBlock math="a_1 = 1/3^0, a_2 = 1/3^1, a_3 = 1/3^2" inline />.</span>,
+                                <div className="result-banner">Formula: <MathBlock math="a_n = \frac{1}{3^{n-1}}" inline /></div>
+                            ]} />
                         </div>
 
-                        <StepByStep steps={[
-                            <p>First, notice that each step divides the previous number by 4 (or multiplies by <MathBlock math="\frac{1}{4}" inline />).</p>,
-                            <p>This is a <strong>Geometric Sequence</strong>. We start with <MathBlock math="a_1 = 2" inline /> and our ratio is <MathBlock math="r = \frac{1}{4}" inline />.</p>,
-                            <div>
-                                <p>Plug these into the pattern <MathBlock math="a_n = a_1 r^{n-1}" inline /> to get:</p>
-                                <MathBlock math="a_n = 2\left(\frac{1}{4}\right)^{n-1}" block />
-                            </div>,
-                            <div className="result-banner">
-                                Verdict: Since the numbers keep getting smaller, they converge to <strong>0</strong>.
-                            </div>
-                        ]} />
-                    </div>
-
-                    <div style={{ marginTop: '5rem', paddingTop: '3rem', borderTop: '2px dashed var(--border)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'var(--bg)', padding: '1.75rem', borderRadius: '22px', border: '1.5px solid var(--border)' }}>
-                            <span style={{ fontWeight: '900', color: 'var(--primary-light)', fontSize: '1.2rem' }}>B</span>
-                            <MathBlock math="\left\{ \frac{1}{9}, -\frac{2}{16}, \frac{3}{25}, -\frac{4}{36}, \frac{5}{49}, \dots \right\}" block />
+                        <div className="glass-card" style={{ padding: '1.5rem' }}>
+                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>B. Alternating Fraction</div>
+                            <MathBlock math="\left\{ -\frac{1}{4}, \frac{2}{9}, -\frac{3}{16}, \frac{4}{25}, \dots \right\}" block />
+                            <StepByStep steps={[
+                                <span>Numerator is <MathBlock math="n" inline />.</span>,
+                                <span>Denominator is <MathBlock math="(n+1)^2" inline /> (from <MathBlock math="2^2, 3^2, 4^2 \dots" inline />).</span>,
+                                <span>Signs switch: use <MathBlock math="(-1)^n" inline />.</span>,
+                                <div className="result-banner">Formula: <MathBlock math="a_n = \frac{(-1)^n n}{(n+1)^2}" inline /></div>
+                            ]} />
                         </div>
-
-                        <StepByStep steps={[
-                            <p>The tops are just <MathBlock math="n" inline /> (1, 2, 3...), and the bottoms are squares starting from <MathBlock math="3^2" inline />, which is <MathBlock math="(n+2)^2" inline />.</p>,
-                            <p>The signs switch back and forth. Since we start with a plus, we use <MathBlock math="(-1)^{n+1}" inline />.</p>,
-                            <div>
-                                <p>Putting it all together:</p>
-                                <MathBlock math="a_n = (-1)^{n+1} \frac{n}{(n+2)^2}" block />
-                            </div>,
-                            <div className="result-banner">
-                                Verdict: Even though it bounces between plus and minus, it still converges to <strong>0</strong>.
-                            </div>
-                        ]} />
                     </div>
                 </div>
             </motion.section>
 
-            {/* Part 2: Key Definitions & Limit Laws */}
+            {/* II. Convergence & Core Theorems */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
@@ -114,183 +106,127 @@ const Section11_1 = () => {
                     <h2 className="section-title">II. Limits & Core Theorems</h2>
                 </div>
 
-                <div className="example-box">
-                    <div className="example-title">Sequence Convergence</div>
-                    <p style={{ fontSize: '1.2rem', marginBottom: '1.5rem' }}>
-                        A sequence <MathBlock math="\{a_n\}" inline /> has the limit <MathBlock math="L" inline /> if:
+                <div className="example-box" style={{ background: 'rgba(168, 85, 247, 0.05)', border: '1.5px solid rgba(168, 85, 247, 0.2)' }}>
+                    <p style={{ fontSize: '1.1rem' }}>
+                        A sequence <MathBlock math="\{a_n\}" inline /> has the limit <MathBlock math="L" inline /> if <MathBlock math="\lim_{n\to\infty} a_n = L" inline />.
                     </p>
-                    <MathBlock math="\lim_{n\to\infty} a_n = L" block />
-                    <p style={{ marginTop: '1.5rem' }}>
-                        If the limit exists, we say the sequence is <strong>convergent</strong> (or converges). Otherwise, we say the sequence is <strong>divergent</strong> (or diverges).
-                    </p>
-                    <div style={{ marginTop: '1.5rem', background: 'var(--bg)', padding: '1.5rem', borderRadius: '16px', borderLeft: '4px solid var(--primary)' }}>
-                        <p style={{ margin: 0 }}>
-                            <strong>Function Theorem:</strong> If <MathBlock math="\lim_{x \to \infty} f(x) = L" inline /> and <MathBlock math="f(n) = a_n" inline />, where <MathBlock math="n" inline /> is an integer, then <MathBlock math="\lim_{n \to \infty} a_n = L" inline />.
+                    <p>• If the limit exists, the sequence is <strong>convergent</strong>.</p>
+                    <p>• If it doesn't exist, it is <strong>divergent</strong>.</p>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginTop: '2.5rem' }}>
+                    <div className="example-box" style={{ margin: 0 }}>
+                        <div className="example-title">Function Theorem</div>
+                        <p style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>
+                            If <MathBlock math="\lim_{x \to \infty} f(x) = L" inline /> and <MathBlock math="f(n) = a_n" inline />, then:
                         </p>
+                        <MathBlock math="\lim_{n \to \infty} a_n = L" block />
                     </div>
-                </div>
 
-                <div className="example-box" style={{ marginTop: '2.5rem' }}>
-                    <div className="example-title">Limit Laws</div>
-                    <p style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
-                        If <MathBlock math="\{a_n\}" inline /> and <MathBlock math="\{b_n\}" inline /> are convergent sequences and <MathBlock math="c" inline /> is a constant, then:
-                    </p>
-                    <div style={{ display: 'grid', gap: '1.5rem' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
-                                <MathBlock math="\lim_{n\to\infty} (a_n \pm b_n) = \lim_{n\to\infty} a_n \pm \lim_{n\to\infty} b_n" block />
-                            </div>
-                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
-                                <MathBlock math="\lim_{n\to\infty} ca_n = c\lim_{n\to\infty} a_n" block />
-                            </div>
-                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
-                                <MathBlock math="\lim_{n\to\infty} (a_n b_n) = \lim_{n\to\infty} a_n \cdot \lim_{n\to\infty} b_n" block />
-                            </div>
-                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
-                                <MathBlock math="\lim_{n\to\infty} \frac{a_n}{b_n} = \frac{\lim_{n\to\infty} a_n}{\lim_{n\to\infty} b_n}" block />
-                            </div>
-                            <div style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px' }}>
-                                <MathBlock math="\lim_{n\to\infty} a_n^p = \left( \lim_{n\to\infty} a_n \right)^p \quad \text{if } p > 0 \text{ and } a_n > 0" block />
-                            </div>
-                        </div>
+                    <div className="example-box" style={{ margin: 0 }}>
+                        <div className="example-title">Absolute Value Theorem</div>
+                        <p style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>
+                            If <MathBlock math="\lim_{n\to\infty} |a_n| = 0" inline />, then:
+                        </p>
+                        <MathBlock math="\lim_{n\to\infty} a_n = 0" block />
                     </div>
-                </div>
 
-                <div className="example-box" style={{ marginTop: '2.5rem' }}>
-                    <div className="example-title">Special Theorems</div>
-                    <div style={{ display: 'grid', gap: '1.5rem', marginTop: '1.5rem' }}>
-                        <div style={{ background: 'var(--bg)', padding: '1.5rem', borderRadius: '16px', borderLeft: '4px solid var(--accent)' }}>
-                            <p style={{ margin: 0 }}>
-                                <strong>Absolute Value Theorem:</strong> If <MathBlock math="\lim_{n\to\infty} |a_n| = 0" inline />, then <MathBlock math="\lim_{n\to\infty} a_n = 0" inline />.
-                            </p>
-                        </div>
-                        <div style={{ background: 'var(--bg)', padding: '1.5rem', borderRadius: '16px', borderLeft: '4px solid var(--success)' }}>
-                            <p style={{ margin: 0 }}>
-                                <strong>Continuous Function Theorem:</strong> If <MathBlock math="\lim_{n\to\infty} a_n = L" inline /> and <MathBlock math="f" inline /> is a continuous function at <MathBlock math="L" inline />, then:
-                            </p>
-                            <div style={{ marginTop: '1rem' }}>
-                                <MathBlock math="\lim_{n\to\infty} f(a_n) = f\left(\lim_{n\to\infty} a_n\right) = f(L)" block />
-                            </div>
-                        </div>
+                    <div className="example-box" style={{ margin: 0 }}>
+                        <div className="example-title">Continuous Function Theorem</div>
+                        <p style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>
+                            If <MathBlock math="\lim_{n\to\infty} a_n = L" inline /> and <MathBlock math="f" inline /> is continuous at <MathBlock math="L" inline />:
+                        </p>
+                        <MathBlock math="\lim_{n \to \infty} f(a_n) = f(L)" block />
                     </div>
                 </div>
             </motion.section>
 
-            {/* Part 3: Finding a limit */}
+            {/* III. Solving Limits */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <Zap size={28} />
                     </div>
-                    <h2 className="section-title">III. Solving for Limits</h2>
+                    <h2 className="section-title">III. Solving Limit Examples</h2>
                 </div>
 
                 <div className="example-box">
-                    <div className="example-title">Example 1.2</div>
-                    <p style={{ fontSize: '1.2rem', marginBottom: '2.5rem' }}>Where does this sequence end up as n goes to infinity?</p>
-                    <div style={{ marginBottom: '2.5rem' }}>
-                        <MathBlock math="a_n = \frac{2n^3}{n^3 + 5}" block />
-                    </div>
-
+                    <div className="example-title">Example 1.2: Rational Forms</div>
+                    <p>Find the limit of <MathBlock math="a_n = \frac{n^3}{n^3 + 1}" inline />.</p>
                     <StepByStep steps={[
-                        <p>Let's simplify by dividing both top and bottom by the biggest power, <MathBlock math="n^3" inline />.</p>,
-                        <MathBlock math="a_n = \frac{2}{1 + \frac{5}{n^3}}" block />,
-                        <p>As n gets huge, any number divided by n (like <MathBlock math="\frac{5}{n^3}" inline />) becomes zero.</p>,
-                        <MathBlock math="\lim_{n \to \infty} a_n = \frac{2}{1 + 0} = 2" block />,
-                        <div className="result-banner">
-                            Summary: The sequence converges to <strong>2</strong>.
-                        </div>
+                        <span>Divide top and bottom by <MathBlock math="n^3" inline />.</span>,
+                        <MathBlock math="\lim_{n \to \infty} \frac{1}{1 + 1/n^3} = \frac{1}{1 + 0} = 1" block />,
+                        <div className="result-banner">Verdict: Converges to <strong>1</strong></div>
+                    ]} />
+                </div>
+
+                <div className="example-box" style={{ marginTop: '3rem' }}>
+                    <div className="example-title">Example 1.3: Geometric Growth</div>
+                    <p>Find the limit of <MathBlock math="a_n = \frac{3^{n+2}}{5^n}" inline />.</p>
+                    <StepByStep steps={[
+                        <span>Simplify the exponent: <MathBlock math="3^{n+2} = 3^n \cdot 3^2 = 9 \cdot 3^n" inline />.</span>,
+                        <span>Rewrite as a geometric term: <MathBlock math="9 \cdot \left(\frac{3}{5}\right)^n" inline />.</span>,
+                        <span>Since <MathBlock math="3/5 < 1" inline />, the limit of the exponent part is 0.</span>,
+                        <MathBlock math="9 \cdot 0 = 0" block />,
+                        <div className="result-banner">Verdict: Converges to <strong>0</strong></div>
                     ]} />
                 </div>
             </motion.section>
 
-            {/* Part 4: Quick Tests */}
-            <motion.section variants={itemVariants} className="section-card glass-card">
-                <div className="section-header">
-                    <div className="section-icon-wrapper">
-                        <MousePointer2 size={28} />
-                    </div>
-                    <h2 className="section-title">IV. Quick Tests</h2>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem' }}>
-                    <div className="example-box" style={{ margin: 0 }}>
-                        <div className="example-title">Option A</div>
-                        <MathBlock math="a_n = \frac{n^2}{n + 4}" block />
-                        <StepByStep steps={[
-                            <p>Divide by n to simplify: <MathBlock math="a_n = \frac{n}{1 + \frac{4}{n}}" inline />.</p>,
-                            <MathBlock math="\lim_{n \to \infty} a_n = \infty" block />,
-                            <div className="result-banner">Verdict: <strong>Divergent</strong></div>
-                        ]} />
-                    </div>
-
-                    <div className="example-box" style={{ margin: 0 }}>
-                        <div className="example-title">Option B</div>
-                        <MathBlock math="a_n = \frac{4^{n+1}}{7^n}" block />
-                        <StepByStep steps={[
-                            <p>Rewrite this as: <MathBlock math="a_n = 4 \cdot \left(\frac{4}{7}\right)^n" inline />.</p>,
-                            <div className="result-banner">Verdict: <strong>Convergent</strong> to 0</div>
-                        ]} />
-                    </div>
-                </div>
-            </motion.section>
-
-            {/* More Examples Section */}
+            {/* Challenges Section */}
             <motion.section id="challenges" variants={itemVariants} className="section-card glass-card" style={{ border: '2px solid var(--primary-light)' }}>
                 <div className="section-header">
                     <div className="section-icon-wrapper" style={{ background: 'var(--text)' }}>
                         <Sparkles size={28} style={{ color: 'var(--primary)' }} />
                     </div>
-                    <h2 className="section-title">Challenge: More Examples</h2>
+                    <h2 className="section-title">Challenge: Practice Exercises</h2>
                 </div>
 
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question={<MathBlock math="a_n = \frac{n^2 - 1}{n^2 + 1}" inline />}
-                        correctAnswer="1"
+                        question={<MathBlock math="a_n = \frac{n^3}{n+1}" inline />}
+                        correctAnswer="divergent"
                         steps={[
-                            "Divide the top and bottom by n².",
-                            <span><MathBlock math="a_n = \frac{1 - 1/n^2}{1 + 1/n^2}" inline /></span>,
-                            "As n approaches infinity, 1/n² becomes 0.",
-                            "The result simplifies to 1/1 = 1."
+                            "Divide top and bottom by n.",
+                            <span><MathBlock math="a_n = \frac{n^2}{1 + 1/n}" inline /></span>,
+                            <span>As n goes to infinity, the top grows square-wise while bottom stays 1.</span>,
+                            "The limit is ∞, so it diverges."
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question={<MathBlock math="a_n = \frac{\ln(n)}{n}" inline />}
+                        question={<MathBlock math="a_n = \frac{(-1)^n n^2}{n^3 + 2n^2 + 1}" inline />}
                         correctAnswer="0"
                         steps={[
-                            "This is an ∞/∞ indeterminate form. Use L'Hopital's Rule.",
-                            "Differentiate top: 1/n. Differentiate bottom: 1.",
-                            <span>The limit becomes <MathBlock math="\lim \frac{1/n}{1}" inline />.</span>,
-                            "As n grows, 1/n approaches 0."
+                            "Use the Squeeze Theorem / Absolute Value Theorem.",
+                            <span>Evaluate <MathBlock math="\lim |a_n| = \lim \frac{n^2}{n^3 + 2n^2 + 1}" inline />.</span>,
+                            <span>Divide by <MathBlock math="n^3" inline /> to get <MathBlock math="\lim \frac{1/n}{1 + 2/n + 1/n^3} = 0" inline />.</span>,
+                            "Since the absolute value goes to 0, the alternating sequence also goes to 0."
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Hard"
-                        question={<MathBlock math="\sqrt{n^2 + n} - n" inline />}
-                        correctAnswer="1/2"
+                        question={<MathBlock math="a_n = \cos\left(\frac{2}{n}\right)" inline />}
+                        correctAnswer="1"
                         steps={[
-                            <span>Multiply by the conjugate: <MathBlock math="\frac{\sqrt{n^2+n} + n}{\sqrt{n^2+n} + n}" inline />.</span>,
-                            <span>The top becomes <MathBlock math="(n^2+n) - n^2 = n" inline />.</span>,
-                            <span>The bottom is <MathBlock math="\sqrt{n^2+n} + n" inline />.</span>,
-                            <span>Divide top and bottom by <MathBlock math="n" inline />: <MathBlock math="\frac{1}{\sqrt{1 + 1/n} + 1}" inline />.</span>,
-                            <span>As n goes to infinity, we get <MathBlock math="\frac{1}{\sqrt{1} + 1} = 1/2" inline />.</span>
+                            "Apply the Continuous Function Theorem.",
+                            <span>Move the limit inside: <MathBlock math="\cos\left( \lim_{n \to \infty} \frac{2}{n} \right)" inline />.</span>,
+                            <span>The inside limit is 0.</span>,
+                            <span><MathBlock math="\cos(0) = 1" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
-                        difficulty="VERY HARD"
-                        question={<MathBlock math="\left(1 + \frac{1}{n}\right)^n" inline />}
-                        correctAnswer="e"
+                        difficulty="PRO"
+                        question={<MathBlock math="a_n = \frac{\ln(n)}{n}" inline />}
+                        correctAnswer="0"
                         steps={[
-                            <span>Use the natural log trick: Let <MathBlock math="y = \lim (1 + 1/n)^n" inline />, so <MathBlock math="\ln(y) = \lim n \cdot \ln(1 + 1/n)" inline />.</span>,
-                            <span>Rewrite as <MathBlock math="\lim \frac{\ln(1 + 1/n)}{1/n}" inline /> for L'Hopital's.</span>,
-                            "The limit of ln(y) is 1.",
-                            <span>Therefore, <MathBlock math="y = e^1 = e" inline />.</span>
+                            "This is an ∞/∞ form. Use the Function Theorem + L'Hopital's Rule.",
+                            <span>Differentiate: <MathBlock math="\frac{d}{dx}\ln(x) = 1/x" inline /> and <MathBlock math="\frac{d}{dx}x = 1" inline />.</span>,
+                            <span>New limit: <MathBlock math="\lim_{x \to \infty} \frac{1/x}{1} = 0" inline />.</span>
                         ]}
                     />
                 </div>

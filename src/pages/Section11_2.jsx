@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import MathBlock from '../components/MathBlock';
 import StepByStep from '../components/StepByStep';
 import PracticeExercise from '../components/PracticeExercise';
-import { Sigma, Sparkles, Zap, Layout, GraduationCap, Target } from 'lucide-react';
+import { Sigma, Sparkles, Zap, Layout, GraduationCap, Target, Braces } from 'lucide-react';
 
 const Section11_2 = () => {
     const containerVariants = {
@@ -50,69 +50,139 @@ const Section11_2 = () => {
                 </motion.div>
             </header>
 
-            {/* Intro Section */}
+            {/* I. Definition of a Series */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <Sigma size={28} />
                     </div>
-                    <h2 className="section-title">Definition of a Series</h2>
+                    <h2 className="section-title">I. Definition of a Series</h2>
                 </div>
                 <div style={{ fontSize: '1.2rem', lineHeight: '1.8' }}>
-                    <p>A series is what you get when you sum up the terms of a sequence <MathBlock math="a_n" inline />.</p>
-                    <MathBlock math="a_1 + a_2 + a_3 + \dots = \sum_{n=1}^{\infty} a_n" block />
-                </div>
-
-                <div className="example-box">
-                    <div className="example-title">Example 1: Sequence vs Series</div>
-                    <p style={{ marginBottom: '1.5rem' }}>Let's see how sequences transform into their corresponding series:</p>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-                        <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
-                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>A. Exponential Growth</div>
-                            <MathBlock math="\left\{ \frac{3}{5^n} \right\} \rightarrow \sum_{n=1}^{\infty} \frac{3}{5^n} = \frac{3}{5} + \frac{3}{25} + \dots" block />
-                        </div>
-                        <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
-                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>B. Linear Terms</div>
-                            <MathBlock math="\left\{ 2n \right\} \rightarrow \sum_{n=1}^{\infty} 2n = 2 + 4 + 6 + 8 + \dots" block />
-                        </div>
+                    <div className="example-box" style={{ background: 'rgba(255, 107, 107, 0.05)', border: '1.5px solid rgba(255, 107, 107, 0.2)' }}>
+                        <p>If we add the terms of a sequence <MathBlock math="\{a_n\}" inline />, we get an expression of the form:</p>
+                        <MathBlock math="a_1 + a_2 + a_3 + \dots + a_n + \dots" block />
+                        <p>which we show by <MathBlock math="\sum_{n=1}^{\infty} a_n" inline /> and call it a <strong>series</strong>.</p>
                     </div>
-                </div>
 
-                <div className="example-box">
-                    <div className="example-title">Partial Sums Concept</div>
-                    <p style={{ marginBottom: '1rem' }}>How do we know if an infinite sum equals a specific number? We use the limit of <strong>Partial Sums</strong>:</p>
-                    <MathBlock math="S_n = \sum_{i=1}^{n} a_i = a_1 + a_2 + \dots + a_n" block />
-                    <div className="result-banner">
-                        If <MathBlock math="\lim_{n \to \infty} S_n = S" inline /> exists, the series <strong>converges</strong> to S. Otherwise, it <strong>diverges</strong>.
+                    <div className="example-box" style={{ marginTop: '2rem' }}>
+                        <div className="example-title">Example 1.1: Expanding Sequences</div>
+                        <p style={{ marginBottom: '1.5rem' }}>Consider the following sequences and their resulting series:</p>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                            <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
+                                <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>A. Exponential Sequence</div>
+                                <MathBlock math="\left\{ \frac{1}{2^n} \right\}_{n=1}^{\infty} \Rightarrow \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \dots = \sum_{n=1}^{\infty} \frac{1}{2^n}" block />
+                            </div>
+                            <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
+                                <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>B. Natural Numbers</div>
+                                <MathBlock math="\left\{ n \right\}_{n=1}^{\infty} \Rightarrow 1 + 2 + 3 + \dots + n + \dots = \sum_{n=1}^{\infty} n" block />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </motion.section>
 
-            {/* Geometric Series */}
+            {/* II. Partial Sums & Convergence */}
+            <motion.section variants={itemVariants} className="section-card glass-card">
+                <div className="section-header">
+                    <div className="section-icon-wrapper">
+                        <Braces size={28} />
+                    </div>
+                    <h2 className="section-title">II. Partial Sums & Convergence</h2>
+                </div>
+                <div className="example-box" style={{ background: 'rgba(251, 191, 36, 0.05)', border: '1.5px solid rgba(251, 191, 36, 0.2)' }}>
+                    <p>Given a series <MathBlock math="\sum_{n=1}^{\infty} a_n = a_1 + a_2 + \dots" inline />, let <MathBlock math="s_n" inline /> denote its <strong>nth partial sum</strong>:</p>
+                    <MathBlock math="s_n = \sum_{i=1}^{n} a_i = a_1 + a_2 + \dots + a_n" block />
+                    <p style={{ marginTop: '1.5rem' }}>
+                        If the sequence <MathBlock math="\{s_n\}" inline /> is convergent and <MathBlock math="\lim_{n \to \infty} s_n = s" inline /> exists as a real number, then the series <MathBlock math="\sum a_n" inline /> is called <strong>convergent</strong> and we write:
+                    </p>
+                    <MathBlock math="\sum_{n=1}^{\infty} a_n = s" block />
+                    <p style={{ marginTop: '1.5rem' }}>
+                        The number <MathBlock math="s" inline /> is called the <strong>sum</strong> of the series. If the sequence <MathBlock math="\{s_n\}" inline /> is divergent, then the series is called <strong>divergent</strong>.
+                    </p>
+                </div>
+            </motion.section>
+
+            {/* III. Geometric Series */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <Zap size={28} />
                     </div>
-                    <h2 className="section-title">Geometric Series</h2>
+                    <h2 className="section-title">III. Geometric Series</h2>
                 </div>
                 <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem' }}>
-                    A series of the form <MathBlock math="\sum_{n=1}^{\infty} ar^{n-1}" inline />.
+                    Consider the following series in which <MathBlock math="r" inline /> and <MathBlock math="a" inline /> are nonzero real numbers:
                 </p>
-                <div className="result-banner" style={{ background: 'rgba(168, 85, 247, 0.05)', color: 'var(--text)', textAlign: 'left', padding: '1.5rem' }}>
-                    <p>• Converges if <MathBlock math="|r| < 1" inline />. Sum is <MathBlock math="S = \frac{a}{1-r}" inline />.</p>
-                    <p>• Diverges if <MathBlock math="|r| \ge 1" inline />.</p>
-                </div>
+                <MathBlock math="a + ar + ar^2 + ar^3 + \dots + ar^{n-1} + \dots = \sum_{n=1}^{\infty} ar^{n-1}" block />
 
                 <div className="example-box">
-                    <div className="example-title">Concept Example</div>
-                    <MathBlock math="6 + 3 + \frac{3}{2} + \frac{3}{4} + \dots" block />
+                    <div className="example-title">Case 1: r = 1</div>
+                    <p>If <MathBlock math="r = 1" inline />, the series becomes:</p>
+                    <MathBlock math="\sum_{n=1}^{\infty} a(1)^{n-1} = a + a + a + \dots" block />
+                    <MathBlock math="s_n = \sum_{i=1}^{n} a = na" block />
+                    <div className="result-banner">
+                        Since <MathBlock math="\lim_{n \to \infty} na = \infty" inline />, the series <strong>diverges</strong>.
+                    </div>
+                </div>
+
+                <div className="example-box" style={{ marginTop: '2.5rem' }}>
+                    <div className="example-title">Case 2: r ≠ 1</div>
+                    <p>Using the partial sum formula derivation:</p>
                     <StepByStep steps={[
-                        <p>First term: <MathBlock math="a = 6" inline />. Ratio: <MathBlock math="r = \frac{3}{6} = \frac{1}{2}" inline />.</p>,
-                        <p>Since <MathBlock math="|1/2| < 1" inline />, the series converges.</p>,
-                        <MathBlock math="S = \frac{6}{1 - 1/2} = 12" block />,
-                        <div className="result-banner">Verdict: <strong>Convergent</strong> to 12</div>
+                        <span><MathBlock math="s_n = a + ar + ar^2 + \dots + ar^{n-1}" inline /> (1)</span>,
+                        <span>Multiply by r: <MathBlock math="rs_n = ar + ar^2 + ar^3 + \dots + ar^n" inline /> (2)</span>,
+                        <span>Subtract (2) from (1): <MathBlock math="s_n - rs_n = a - ar^n" inline /></span>,
+                        <span>Factor: <MathBlock math="s_n(1 - r) = a(1 - r^n)" inline /></span>,
+                        <MathBlock math="s_n = \frac{a(1 - r^n)}{1 - r}" block />
+                    ]} />
+
+                    <div style={{ marginTop: '2rem' }}>
+                        <p>Now, let's take the limit as <MathBlock math="n \to \infty" inline />:</p>
+                        <ul style={{ listStyleType: 'none', padding: 0 }}>
+                            <li style={{ marginBottom: '1.5rem', background: 'var(--bg)', padding: '1rem', borderRadius: '12px', borderLeft: '4px solid var(--success)' }}>
+                                <strong>If |r| &lt; 1:</strong> <MathBlock math="\lim_{n\to\infty} r^n = 0" inline />, so <MathBlock math="\lim_{n\to\infty} s_n = \frac{a}{1 - r}" inline />.
+                            </li>
+                            <li style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px', borderLeft: '4px solid var(--primary-light)' }}>
+                                <strong>If |r| ≥ 1:</strong> <MathBlock math="\lim_{n\to\infty} r^n" inline /> does not exist (or is ∞), so the series <strong>diverges</strong>.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="example-box" style={{ background: 'rgba(168, 85, 247, 0.05)', border: '1.5px solid rgba(168, 85, 247, 0.2)', marginTop: '2.5rem' }}>
+                    <div className="example-title" style={{ color: 'var(--primary-light)' }}>Geometric Series Summary</div>
+                    <p>The geometric series <MathBlock math="\sum_{n=1}^{\infty} ar^{n-1}" inline /> is:</p>
+                    <p>• <strong>Convergent</strong> if <MathBlock math="|r| < 1" inline />, with sum <MathBlock math="S = \frac{a}{1-r}" inline />.</p>
+                    <p>• <strong>Divergent</strong> if <MathBlock math="|r| \ge 1" inline />.</p>
+                </div>
+            </motion.section>
+
+            {/* IV. Divergence Test & Harmonic Series */}
+            <motion.section variants={itemVariants} className="section-card glass-card">
+                <div className="section-header">
+                    <div className="section-icon-wrapper">
+                        <Target size={28} />
+                    </div>
+                    <h2 className="section-title">IV. Test for Divergence</h2>
+                </div>
+                <div className="example-box" style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1.5px solid rgba(239, 68, 68, 0.2)' }}>
+                    <p>If <MathBlock math="\lim_{n \to \infty} a_n" inline /> does not exist or if <MathBlock math="\lim_{n \to \infty} a_n \neq 0" inline />, then the series <MathBlock math="\sum_{n=1}^{\infty} a_n" inline /> is <strong>divergent</strong>.</p>
+                </div>
+
+                <div className="example-box" style={{ marginTop: '2.5rem' }}>
+                    <div className="example-title">The Harmonic Series</div>
+                    <p>Show that the <strong>harmonic series</strong> <MathBlock math="\sum_{n=1}^{\infty} \frac{1}{n}" inline /> is divergent.</p>
+                    <MathBlock math="\sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \dots" block />
+                    <StepByStep steps={[
+                        <span><MathBlock math="s_2 = 1 + \frac{1}{2}" inline /></span>,
+                        <span><MathBlock math="s_4 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4}\right) > 1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4}\right) = 1 + \frac{2}{2}" inline /></span>,
+                        <span><MathBlock math="s_8 = s_4 + \left(\frac{1}{5} + \dots + \frac{1}{8}\right) > 1 + \frac{2}{2} + \left(\frac{1}{8} + \dots + \frac{1}{8}\right) = 1 + \frac{3}{2}" inline /></span>,
+                        <span>In general, <MathBlock math="s_{2^n} > 1 + \frac{n}{2}" inline />.</span>,
+                        <div className="result-banner">
+                            Since <MathBlock math="\lim_{n \to \infty} s_{2^n} = \infty" inline />, the harmonic series <strong>diverges</strong>.
+                        </div>
                     ]} />
                 </div>
             </motion.section>
@@ -123,54 +193,55 @@ const Section11_2 = () => {
                     <div className="section-icon-wrapper" style={{ background: 'var(--text)' }}>
                         <Sparkles size={28} style={{ color: 'var(--primary)' }} />
                     </div>
-                    <h2 className="section-title">Challenge: More Examples</h2>
+                    <h2 className="section-title">Challenge: Practice Exercises</h2>
                 </div>
 
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} 5\left( -\frac{7}{4} \right)^{n-1}" inline />}
-                        correctAnswer="divergent"
+                        question={<MathBlock math="4 + 3 + \frac{9}{4} + \frac{27}{16} + \dots" inline />}
+                        correctAnswer="16"
                         steps={[
-                            "Identify the ratio r.",
-                            <span><MathBlock math="r = -7/4" inline />, so <MathBlock math="|r| = 1.75" inline />.</span>,
-                            <span>Since <MathBlock math="|r| > 1" inline />, the series diverges.</span>
+                            "Identify a and r.",
+                            <span>First term <MathBlock math="a = 4" inline />.</span>,
+                            <span>Ratio <MathBlock math="r = 3/4" inline />.</span>,
+                            <span>Since <MathBlock math="|3/4| < 1" inline />, it converges.</span>,
+                            <span><MathBlock math="S = \frac{4}{1 - 3/4} = \frac{4}{1/4} = 16" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{3}{10^n}" inline />}
-                        correctAnswer="1/3"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{10^n}{(-9)^{n-1}}" inline />}
+                        correctAnswer="divergent"
                         steps={[
-                            <span>Expand: <MathBlock math="3/10 + 3/100 + 3/1000 + \dots" inline /></span>,
-                            <span>First term <MathBlock math="a = 3/10" inline />. Ratio <MathBlock math="r = 1/10" inline />.</span>,
-                            <span>Sum formula: <MathBlock math="S = a / (1 - r) = (3/10) / (9/10)" inline />.</span>,
-                            <span><MathBlock math="S = 3/9 = 1/3" inline />.</span>
+                            <span>Expand the sum: <MathBlock math="\frac{10^1}{(-9)^0} + \frac{10^2}{(-9)^1} + \dots = 10 - \frac{100}{9} + \dots" inline /></span>,
+                            <span><MathBlock math="a = 10" inline /> and <MathBlock math="r = -10/9" inline />.</span>,
+                            <span>Since <MathBlock math="|r| = |-10/9| > 1" inline />, the series diverges.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Hard"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{2n}{n+1}" inline />}
+                        question={<MathBlock math="\sum_{n=1}^{\infty} 2^{2n} 3^{1-n}" inline />}
                         correctAnswer="divergent"
                         steps={[
-                            "Apply the Divergence Test: limit of individual terms.",
-                            <span><MathBlock math="\lim_{n \to \infty} \frac{2n}{n+1} = 2" inline />.</span>,
-                            "Since the limit is not 0, the total sum must diverge."
+                            <span>Simplify the term: <MathBlock math="a_n = 4^n \cdot 3 \cdot 3^{-n} = 3 \cdot \left(\frac{4}{3}\right)^n" inline />.</span>,
+                            <span>Rewrite as <MathBlock math="ar^{n-1}" inline />: <MathBlock math="3 \cdot \frac{4}{3} \cdot \left(\frac{4}{3}\right)^{n-1} = 4 \cdot \left(\frac{4}{3}\right)^{n-1}" inline />.</span>,
+                            <span><MathBlock math="a = 4, r = 4/3" inline />.</span>,
+                            <span>Since <MathBlock math="r > 1" inline />, the series diverges.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="VERY HARD"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{1}{n^2 + n}" inline />}
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)" inline />}
                         correctAnswer="1"
                         steps={[
-                            <span>Use partial fractions: <MathBlock math="\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}" inline />.</span>,
-                            <span>Write out partial sums <MathBlock math="S_n" inline />: <MathBlock math="(1 - 1/2) + (1/2 - 1/3) + \dots + (1/n - 1/(n+1))" inline />.</span>,
-                            "This is a Telescoping Series. Most terms cancel out!",
-                            <span><MathBlock math="S_n = 1 - 1/(n+1)" inline />.</span>,
-                            <span>As <MathBlock math="n" inline /> approaches infinity, <MathBlock math="S_n" inline /> approaches 1.</span>
+                            "This is a telescoping series.",
+                            <span>Write out partial sums: <MathBlock math="s_n = (1 - 1/2) + (1/2 - 1/3) + \dots + (1/n - 1/(n+1))" inline />.</span>,
+                            <span>All intermediate terms cancel, leaving <MathBlock math="s_n = 1 - \frac{1}{n+1}" inline />.</span>,
+                            <span>Take the limit as <MathBlock math="n \to \infty" inline />: <MathBlock math="\lim s_n = 1 - 0 = 1" inline />.</span>
                         ]}
                     />
                 </div>
