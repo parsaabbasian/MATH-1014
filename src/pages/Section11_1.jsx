@@ -114,6 +114,29 @@ const Section11_1 = () => {
                     <p>• If it doesn't exist, it is <strong>divergent</strong>.</p>
                 </div>
 
+                <div className="example-box" style={{ marginTop: '2.5rem' }}>
+                    <div className="example-title">Limit Laws for Sequences</div>
+                    <p style={{ marginBottom: '1.5rem', color: 'var(--text-muted)' }}>If <MathBlock math="\{a_n\}" inline /> and <MathBlock math="\{b_n\}" inline /> are convergent and <MathBlock math="c" inline /> is a constant:</p>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+                        <div className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <MathBlock math="\lim_{n\to\infty} (a_n \pm b_n) = \lim_{n\to\infty} a_n \pm \lim_{n\to\infty} b_n" block />
+                        </div>
+                        <div className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <MathBlock math="\lim_{n\to\infty} c a_n = c \lim_{n\to\infty} a_n" block />
+                        </div>
+                        <div className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <MathBlock math="\lim_{n\to\infty} (a_n b_n) = \lim_{n\to\infty} a_n \cdot \lim_{n\to\infty} b_n" block />
+                        </div>
+                        <div className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <MathBlock math="\lim_{n\to\infty} \frac{a_n}{b_n} = \frac{\lim a_n}{\lim b_n} \text{ (if } \lim b_n \neq 0)" block />
+                        </div>
+                        <div className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <MathBlock math="\lim_{n\to\infty} a_n^p = (\lim_{n\to\infty} a_n)^p \text{ (if } p > 0, a_n > 0)" block />
+                        </div>
+                    </div>
+                </div>
+
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginTop: '2.5rem' }}>
                     <div className="example-box" style={{ margin: 0 }}>
                         <div className="example-title">Function Theorem</div>
