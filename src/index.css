@@ -419,12 +419,23 @@ svg {
   height: auto;
 }
 
-/* Ensure math blocks scroll on mobile */
-.katex-display {
+/* Ensure math blocks scroll on mobile but hide scrollbar visuals */
+.katex-display,
+.math-block-container {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.5rem 0;
   max-width: 100%;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.katex-display::-webkit-scrollbar,
+.math-block-container::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari/Brave */
 }
 
 @media (max-width: 640px) {

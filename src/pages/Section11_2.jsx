@@ -72,11 +72,11 @@ const Section11_2 = () => {
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                             <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
                                 <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>A. Exponential Decay</div>
-                                <MathBlock math="\left\{ \frac{1}{5^n} \right\}_{n=1}^{\infty} \Rightarrow \frac{1}{5} + \frac{1}{25} + \frac{1}{125} + \dots = \sum_{n=1}^{\infty} \frac{1}{5^n}" block />
+                                <MathBlock math="\left\{ \frac{1}{5^n} \right\} \Rightarrow \frac{1}{5} + \frac{1}{25} + \dots = \sum_{n=1}^{\infty} \frac{1}{5^n}" block />
                             </div>
                             <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
                                 <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>B. Multiples of Two</div>
-                                <MathBlock math="\left\{ 2n \right\}_{n=1}^{\infty} \Rightarrow 2 + 4 + 6 + \dots + 2n + \dots = \sum_{n=1}^{\infty} 2n" block />
+                                <MathBlock math="\left\{ 2n \right\} \Rightarrow 2 + 4 + 6 + \dots = \sum_{n=1}^{\infty} 2n" block />
                             </div>
                         </div>
                     </div>
