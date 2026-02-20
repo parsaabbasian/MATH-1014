@@ -42,11 +42,16 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
     };
 
     return (
-        <div className="example-box practice-box" style={{
-            border: status === 'correct' ? '2px solid var(--success)' :
-                status === 'wrong' ? '2px solid var(--error)' : '1px solid var(--border)',
-            background: 'var(--surface)'
-        }}>
+        <motion.div
+            whileHover={{ y: -4, scale: 1.005 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="example-box practice-box"
+            style={{
+                border: status === 'correct' ? '2px solid var(--success)' :
+                    status === 'wrong' ? '2px solid var(--error)' : '1px solid var(--border)',
+                background: 'var(--surface)'
+            }}
+        >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <div className="example-title" style={{ color: difficultyColors[difficulty], margin: 0, letterSpacing: '0.15em', fontSize: '0.75rem' }}>
                     LEVEL: {difficulty}
@@ -120,7 +125,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
                         style={{ overflow: 'hidden' }}
                     >
                         <div style={{ paddingTop: '2rem', borderTop: '1px solid var(--border)', marginTop: '1rem' }}>
@@ -136,9 +141,9 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                                         <AnimatePresence key={index}>
                                             {isStepVisible && (
                                                 <motion.div
-                                                    initial={{ opacity: 0, y: 10 }}
+                                                    initial={{ opacity: 0, y: 15 }}
                                                     animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ duration: 0.4 }}
+                                                    transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
                                                     className="step-item"
                                                     style={{ background: 'rgba(255,255,255,0.03)' }}
                                                 >
@@ -169,7 +174,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </motion.div>
     );
 };
 

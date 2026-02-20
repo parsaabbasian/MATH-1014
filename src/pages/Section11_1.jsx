@@ -15,14 +15,18 @@ const Section11_1 = () => {
     };
 
     const itemVariants = {
-        hidden: { y: 25, opacity: 0 },
+        hidden: { y: 20, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
             transition: {
                 duration: 0.8,
-                ease: [0.16, 1, 0.3, 1]
+                ease: [0.25, 1, 0.5, 1]
             }
+        },
+        hover: {
+            y: -5,
+            transition: { duration: 0.3 }
         }
     };
 
@@ -51,7 +55,7 @@ const Section11_1 = () => {
             </header>
 
             {/* I. Introduction to Sequences */}
-            <motion.section variants={itemVariants} className="section-card glass-card">
+            <motion.section variants={itemVariants} whileHover="hover" className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <Layout size={28} />
@@ -98,7 +102,7 @@ const Section11_1 = () => {
             </motion.section>
 
             {/* II. Convergence & Core Theorems */}
-            <motion.section variants={itemVariants} className="section-card glass-card">
+            <motion.section variants={itemVariants} whileHover="hover" className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <GraduationCap size={28} />
@@ -165,7 +169,7 @@ const Section11_1 = () => {
             </motion.section>
 
             {/* III. Solving Limits */}
-            <motion.section variants={itemVariants} className="section-card glass-card">
+            <motion.section variants={itemVariants} whileHover="hover" className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
                         <Zap size={28} />
