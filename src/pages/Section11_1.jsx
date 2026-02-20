@@ -75,22 +75,22 @@ const Section11_1 = () => {
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
                         <div className="glass-card" style={{ padding: '1.5rem' }}>
-                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>A. Powers of 1/3</div>
-                            <MathBlock math="\left\{ 1, \frac{1}{3}, \frac{1}{9}, \frac{1}{27}, \dots \right\}" block />
+                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>A. Geometric Decay</div>
+                            <MathBlock math="\left\{ 2, 1, \frac{1}{2}, \frac{1}{4}, \dots \right\}" block />
                             <StepByStep steps={[
-                                <span>Look for a pattern: <MathBlock math="a_1 = 1/3^0, a_2 = 1/3^1, a_3 = 1/3^2" inline />.</span>,
-                                <div className="result-banner">Formula: <MathBlock math="a_n = \frac{1}{3^{n-1}}" inline /></div>
+                                <span>Starting term <MathBlock math="a = 2" inline />, each term is multiplied by <MathBlock math="1/2" inline />.</span>,
+                                <div className="result-banner">Formula: <MathBlock math="a_n = 2 \left( \frac{1}{2} \right)^{n-1} = \frac{1}{2^{n-2}}" inline /></div>
                             ]} />
                         </div>
 
                         <div className="glass-card" style={{ padding: '1.5rem' }}>
-                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>B. Alternating Fraction</div>
-                            <MathBlock math="\left\{ -\frac{1}{4}, \frac{2}{9}, -\frac{3}{16}, \frac{4}{25}, \dots \right\}" block />
+                            <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>B. Alternating Rationals</div>
+                            <MathBlock math="\left\{ \frac{1}{4}, -\frac{2}{9}, \frac{3}{16}, -\frac{4}{25}, \dots \right\}" block />
                             <StepByStep steps={[
                                 <span>Numerator is <MathBlock math="n" inline />.</span>,
-                                <span>Denominator is <MathBlock math="(n+1)^2" inline /> (from <MathBlock math="2^2, 3^2, 4^2 \dots" inline />).</span>,
-                                <span>Signs switch: use <MathBlock math="(-1)^n" inline />.</span>,
-                                <div className="result-banner">Formula: <MathBlock math="a_n = \frac{(-1)^n n}{(n+1)^2}" inline /></div>
+                                <span>Denominator follows the square pattern <MathBlock math="(n+1)^2" inline />.</span>,
+                                <span>The sign is positive for $n=1$, so we use <MathBlock math="(-1)^{n+1}" inline />.</span>,
+                                <div className="result-banner">Formula: <MathBlock math="a_n = \frac{(-1)^{n+1} n}{(n+1)^2}" inline /></div>
                             ]} />
                         </div>
                     </div>
@@ -152,44 +152,42 @@ const Section11_1 = () => {
 
                 <div className="example-box">
                     <div className="example-title">Example 1.2: Rational Forms</div>
-                    <p>Find the limit of <MathBlock math="a_n = \frac{n^3}{n^3 + 1}" inline />.</p>
+                    <p>Find the limit of <MathBlock math="a_n = \frac{3n^2 - 1}{2n^2 + 5}" inline />.</p>
                     <StepByStep steps={[
-                        <span>Divide top and bottom by <MathBlock math="n^3" inline />.</span>,
-                        <MathBlock math="\lim_{n \to \infty} \frac{1}{1 + 1/n^3} = \frac{1}{1 + 0} = 1" block />,
-                        <div className="result-banner">Verdict: Converges to <strong>1</strong></div>
+                        <span>Divide top and bottom by the highest power, <MathBlock math="n^2" inline />.</span>,
+                        <MathBlock math="\lim_{n \to \infty} \frac{3 - 1/n^2}{2 + 5/n^2}" block />,
+                        <span>As <MathBlock math="n" inline /> approaches infinity, <MathBlock math="1/n^2" inline /> and <MathBlock math="5/n^2" inline /> become 0.</span>,
+                        <div className="result-banner">Verdict: The sequence converges to <strong>3/2</strong>.</div>
                     ]} />
                 </div>
 
                 <div className="example-box" style={{ marginTop: '3rem' }}>
-                    <div className="example-title">Example 1.3: Geometric Growth</div>
-                    <p>Find the limit of <MathBlock math="a_n = \frac{3^{n+2}}{5^n}" inline />.</p>
+                    <div className="example-title">Example 1.3: Geometric Fractions</div>
+                    <p>Find the limit of <MathBlock math="a_n = \frac{4^{n+1}}{7^n}" inline />.</p>
                     <StepByStep steps={[
-                        <span>Simplify the exponent: <MathBlock math="3^{n+2} = 3^n \cdot 3^2 = 9 \cdot 3^n" inline />.</span>,
-                        <span>Rewrite as a geometric term: <MathBlock math="9 \cdot \left(\frac{3}{5}\right)^n" inline />.</span>,
-                        <span>Since <MathBlock math="3/5 < 1" inline />, the limit of the exponent part is 0.</span>,
-                        <MathBlock math="9 \cdot 0 = 0" block />,
-                        <div className="result-banner">Verdict: Converges to <strong>0</strong></div>
+                        <span>Rewrite $4^{n + 1}$ as $4 \cdot 4^n$.</span>,
+                        <span>Factor out the constant: <MathBlock math="4 \cdot \left( \frac{4}{7} \right)^n" inline />.</span>,
+                        <span>Since <MathBlock math="|4/7| < 1" inline />, the geometric part $(4/7)^n$ approaches 0.</span>,
+                        <div className="result-banner">Verdict: Converges to <strong>0</strong>.</div>
                     ]} />
                 </div>
 
                 <div className="example-box" style={{ marginTop: '3rem' }}>
-                    <div className="example-title">Example 1.4: Alternating Sequences</div>
-                    <p>Determine whether the sequence <MathBlock math="a_n = \frac{(-1)^n n^2}{n^3 + 2n^2 + 1}" inline /> converges or diverges.</p>
+                    <div className="example-title">Example 1.4: Alternating Decay</div>
+                    <p>Determine the limit of <MathBlock math="a_n = \frac{(-1)^n n}{n^2 + 10}" inline />.</p>
                     <StepByStep steps={[
-                        <span>Apply the <strong>Absolute Value Theorem</strong>. First, evaluate <MathBlock math="\lim_{n\to\infty} |a_n|" inline />.</span>,
-                        <MathBlock math="\lim_{n\to\infty} \frac{n^2}{n^3 + 2n^2 + 1} = \lim_{n\to\infty} \frac{1/n}{1 + 2/n + 1/n^3}" block />,
-                        <span>The limit is <MathBlock math="\frac{0}{1 + 0 + 0} = 0" inline />.</span>,
-                        <div className="result-banner">Since <MathBlock math="\lim |a_n| = 0" inline />, then <MathBlock math="\lim a_n = 0" inline />. The sequence converges to 0.</div>
+                        <span>Use the <strong>Absolute Value Theorem</strong>: evaluate <MathBlock math="\lim |a_n|" inline />.</span>,
+                        <MathBlock math="\lim_{n\to\infty} \frac{n}{n^2 + 10} = \lim_{n\to\infty} \frac{1/n}{1 + 10/n^2} = 0" block />,
+                        <div className="result-banner">Since <MathBlock math="\lim |a_n| = 0" inline />, then <MathBlock math="\lim a_n = 0" inline />. Convergent.</div>
                     ]} />
                 </div>
 
                 <div className="example-box" style={{ marginTop: '3rem' }}>
                     <div className="example-title">Example 1.5: Continuous Functions</div>
-                    <p>Find the limit of <MathBlock math="a_n = \cos\left(\frac{2}{n}\right)" inline />.</p>
+                    <p>Find the limit of <MathBlock math="a_n = e^{-1/n^2}" inline />.</p>
                     <StepByStep steps={[
-                        <span>Since cosine is a <strong>continuous function</strong>, we can move the limit inside.</span>,
-                        <MathBlock math="\lim_{n \to \infty} \cos\left(\frac{2}{n}\right) = \cos\left( \lim_{n \to \infty} \frac{2}{n} \right)" block />,
-                        <span>The inside limit is 0, so <MathBlock math="\cos(0) = 1" inline />.</span>,
+                        <span>Because $f(x) = e^x$ is continuous, move the limit inside the exponent.</span>,
+                        <MathBlock math="e^{\lim_{n\to\infty} (-1/n^2)} = e^0" block />,
                         <div className="result-banner">Verdict: The sequence converges to <strong>1</strong>.</div>
                     ]} />
                 </div>
@@ -207,48 +205,48 @@ const Section11_1 = () => {
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question={<MathBlock math="a_n = \frac{n^3}{n+1}" inline />}
+                        question={<MathBlock math="a_n = \frac{n^2 + 1}{n}" inline />}
                         correctAnswer="divergent"
                         steps={[
-                            "Divide top and bottom by n.",
-                            <span><MathBlock math="a_n = \frac{n^2}{1 + 1/n}" inline /></span>,
-                            <span>As n goes to infinity, the top grows square-wise while bottom stays 1.</span>,
-                            "The limit is ∞, so it diverges."
+                            "Simplify the fraction to n + 1/n.",
+                            "As n approaches infinity, the term grows without bound.",
+                            "Therefore, the sequence is divergent."
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question={<MathBlock math="a_n = \frac{(-1)^n n^2}{n^3 + 2n^2 + 1}" inline />}
+                        question={<MathBlock math="a_n = \frac{(-1)^n}{\sqrt{n}}" inline />}
                         correctAnswer="0"
                         steps={[
-                            "Use the Squeeze Theorem / Absolute Value Theorem.",
-                            <span>Evaluate <MathBlock math="\lim |a_n| = \lim \frac{n^2}{n^3 + 2n^2 + 1}" inline />.</span>,
-                            <span>Divide by <MathBlock math="n^3" inline /> to get <MathBlock math="\lim \frac{1/n}{1 + 2/n + 1/n^3} = 0" inline />.</span>,
-                            "Since the absolute value goes to 0, the alternating sequence also goes to 0."
+                            "Apply the Absolute Value Theorem.",
+                            <span>Evaluate <MathBlock math="\lim_{n \to \infty} 1/\sqrt{n}" inline />.</span>,
+                            "The denominator grows to infinity, so the fraction approaches 0.",
+                            "The alternating sequence also converges to 0."
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Hard"
-                        question={<MathBlock math="a_n = \cos\left(\frac{2}{n}\right)" inline />}
-                        correctAnswer="1"
+                        question={<MathBlock math="a_n = \arctan(2n)" inline />}
+                        correctAnswer="\pi/2"
                         steps={[
-                            "Apply the Continuous Function Theorem.",
-                            <span>Move the limit inside: <MathBlock math="\cos\left( \lim_{n \to \infty} \frac{2}{n} \right)" inline />.</span>,
-                            <span>The inside limit is 0.</span>,
-                            <span><MathBlock math="\cos(0) = 1" inline />.</span>
+                            "Recall the horizontal asymptote of the arctangent function.",
+                            <span>As <MathBlock math="x \to \infty" inline />, <MathBlock math="\arctan(x) \to \pi/2" inline />.</span>,
+                            "Multiply the argument by any positive constant (like 2) doesn't change the limit at infinity.",
+                            "Verdict: Converges to π/2."
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="PRO"
-                        question={<MathBlock math="a_n = \frac{\ln(n)}{n}" inline />}
-                        correctAnswer="0"
+                        question={<MathBlock math="a_n = n \sin(1/n)" inline />}
+                        correctAnswer="1"
                         steps={[
-                            "This is an ∞/∞ form. Use the Function Theorem + L'Hopital's Rule.",
-                            <span>Differentiate: <MathBlock math="\frac{d}{dx}\ln(x) = 1/x" inline /> and <MathBlock math="\frac{d}{dx}x = 1" inline />.</span>,
-                            <span>New limit: <MathBlock math="\lim_{x \to \infty} \frac{1/x}{1} = 0" inline />.</span>
+                            <span>Rewrite as <MathBlock math="\frac{\sin(1/n)}{1/n}" inline />.</span>,
+                            <span>Let <MathBlock math="x = 1/n" inline />. As <MathBlock math="n\to\infty" inline />, <MathBlock math="x\to 0" inline />.</span>,
+                            <span>The problem becomes <MathBlock math="\lim_{x \to 0} \frac{\sin(x)}{x}" inline />.</span>,
+                            "Using L'Hopital's or the Squeeze Theorem, this limit is 1."
                         ]}
                     />
                 </div>

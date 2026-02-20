@@ -66,17 +66,17 @@ const Section11_2 = () => {
                     </div>
 
                     <div className="example-box" style={{ marginTop: '2rem' }}>
-                        <div className="example-title">Example 1.1: Expanding Sequences</div>
-                        <p style={{ marginBottom: '1.5rem' }}>Consider the following sequences and their resulting series:</p>
+                        <div className="example-title">Example 1.1: Series Expansion</div>
+                        <p style={{ marginBottom: '1.5rem' }}>Consider how these sequences form their respective series:</p>
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                             <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
-                                <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>A. Exponential Sequence</div>
-                                <MathBlock math="\left\{ \frac{1}{2^n} \right\}_{n=1}^{\infty} \Rightarrow \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \dots = \sum_{n=1}^{\infty} \frac{1}{2^n}" block />
+                                <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>A. Exponential Decay</div>
+                                <MathBlock math="\left\{ \frac{1}{5^n} \right\}_{n=1}^{\infty} \Rightarrow \frac{1}{5} + \frac{1}{25} + \frac{1}{125} + \dots = \sum_{n=1}^{\infty} \frac{1}{5^n}" block />
                             </div>
                             <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
-                                <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>B. Natural Numbers</div>
-                                <MathBlock math="\left\{ n \right\}_{n=1}^{\infty} \Rightarrow 1 + 2 + 3 + \dots + n + \dots = \sum_{n=1}^{\infty} n" block />
+                                <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>B. Multiples of Two</div>
+                                <MathBlock math="\left\{ 2n \right\}_{n=1}^{\infty} \Rightarrow 2 + 4 + 6 + \dots + 2n + \dots = \sum_{n=1}^{\infty} 2n" block />
                             </div>
                         </div>
                     </div>
@@ -199,49 +199,49 @@ const Section11_2 = () => {
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question={<MathBlock math="4 + 3 + \frac{9}{4} + \frac{27}{16} + \dots" inline />}
-                        correctAnswer="16"
+                        question={<MathBlock math="6 + 2 + \frac{2}{3} + \frac{2}{9} + \dots" inline />}
+                        correctAnswer="9"
                         steps={[
                             "Identify a and r.",
-                            <span>First term <MathBlock math="a = 4" inline />.</span>,
-                            <span>Ratio <MathBlock math="r = 3/4" inline />.</span>,
-                            <span>Since <MathBlock math="|3/4| < 1" inline />, it converges.</span>,
-                            <span><MathBlock math="S = \frac{4}{1 - 3/4} = \frac{4}{1/4} = 16" inline />.</span>
+                            <span>First term <MathBlock math="a = 6" inline />.</span>,
+                            <span>Ratio <MathBlock math="r = 2/6 = 1/3" inline />.</span>,
+                            <span>Since <MathBlock math="|1/3| < 1" inline />, it converges.</span>,
+                            <span>Sum formula: <MathBlock math="S = \frac{6}{1 - 1/3} = \frac{6}{2/3} = 9" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{10^n}{(-9)^{n-1}}" inline />}
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{8^n}{(-7)^{n-1}}" inline />}
                         correctAnswer="divergent"
                         steps={[
-                            <span>Expand the sum: <MathBlock math="\frac{10^1}{(-9)^0} + \frac{10^2}{(-9)^1} + \dots = 10 - \frac{100}{9} + \dots" inline /></span>,
-                            <span><MathBlock math="a = 10" inline /> and <MathBlock math="r = -10/9" inline />.</span>,
-                            <span>Since <MathBlock math="|r| = |-10/9| > 1" inline />, the series diverges.</span>
+                            <span>Expand the sum: <MathBlock math="a_1 = \frac{8^1}{(-7)^0} = 8" inline />.</span>,
+                            <span>Divide terms to find ratio: <MathBlock math="r = \frac{8^2/(-7)^1}{8^1} = -8/7" inline />.</span>,
+                            <span>Since <MathBlock math="|r| = 1.14 > 1" inline />, the series diverges.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Hard"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} 2^{2n} 3^{1-n}" inline />}
-                        correctAnswer="divergent"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{3^{2n}}{10^n}" inline />}
+                        correctAnswer="9"
                         steps={[
-                            <span>Simplify the term: <MathBlock math="a_n = 4^n \cdot 3 \cdot 3^{-n} = 3 \cdot \left(\frac{4}{3}\right)^n" inline />.</span>,
-                            <span>Rewrite as <MathBlock math="ar^{n-1}" inline />: <MathBlock math="3 \cdot \frac{4}{3} \cdot \left(\frac{4}{3}\right)^{n-1} = 4 \cdot \left(\frac{4}{3}\right)^{n-1}" inline />.</span>,
-                            <span><MathBlock math="a = 4, r = 4/3" inline />.</span>,
-                            <span>Since <MathBlock math="r > 1" inline />, the series diverges.</span>
+                            <span>Simplify the term: <MathBlock math="a_n = \frac{(3^2)^n}{10^n} = \left(\frac{9}{10}\right)^n" inline />.</span>,
+                            <span>First term <MathBlock math="a = 0.9" inline /> (at n=1). Ratio <MathBlock math="r = 0.9" inline />.</span>,
+                            <span><MathBlock math="S = \frac{0.9}{1 - 0.9} = \frac{0.9}{0.1} = 9" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="VERY HARD"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)" inline />}
-                        correctAnswer="1"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{1}{(n+1)(n+2)}" inline />}
+                        correctAnswer="1/2"
                         steps={[
-                            "This is a telescoping series.",
-                            <span>Write out partial sums: <MathBlock math="s_n = (1 - 1/2) + (1/2 - 1/3) + \dots + (1/n - 1/(n+1))" inline />.</span>,
-                            <span>All intermediate terms cancel, leaving <MathBlock math="s_n = 1 - \frac{1}{n+1}" inline />.</span>,
-                            <span>Take the limit as <MathBlock math="n \to \infty" inline />: <MathBlock math="\lim s_n = 1 - 0 = 1" inline />.</span>
+                            "Use partial fraction decomposition.",
+                            <span>Rewrite as <MathBlock math="\sum \left( \frac{1}{n+1} - \frac{1}{n+2} \right)" inline />.</span>,
+                            <span>This is a telescoping series where <MathBlock math="s_n = (1/2 - 1/3) + (1/3 - 1/4) + \dots + (1/(n+1) - 1/(n+2))" inline />.</span>,
+                            <span>All terms cancel except the first and last: <MathBlock math="1/2 - \frac{1}{n+2}" inline />.</span>,
+                            <span>As <MathBlock math="n \to \infty" inline />, the limit is 1/2.</span>
                         ]}
                     />
                 </div>
