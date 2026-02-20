@@ -76,21 +76,21 @@ const Section11_1 = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
                         <div className="glass-card" style={{ padding: '1.5rem' }}>
                             <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>A. Geometric Decay</div>
-                            <MathBlock math="\left\{ 2, 1, \frac{1}{2}, \frac{1}{4}, \dots \right\}" block />
+                            <MathBlock math="\left\{ 2, 1, \dfrac{1}{2}, \dfrac{1}{4}, \dots \right\}" block />
                             <StepByStep steps={[
-                                <span>Starting term <MathBlock math="a = 2" inline />, each term is multiplied by <MathBlock math="1/2" inline />.</span>,
-                                <div className="result-banner">Formula: <MathBlock math="a_n = 2 \left( \frac{1}{2} \right)^{n-1} = \frac{1}{2^{n-2}}" inline /></div>
+                                <span>Starting term <MathBlock math="a = 2" inline />, each term is multiplied by <MathBlock math="\dfrac{1}{2}" inline />.</span>,
+                                <div className="result-banner">Formula: <MathBlock math="a_n = 2 \left( \dfrac{1}{2} \right)^{n-1} = \dfrac{1}{2^{n-2}}" inline /></div>
                             ]} />
                         </div>
 
                         <div className="glass-card" style={{ padding: '1.5rem' }}>
                             <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>B. Alternating Rationals</div>
-                            <MathBlock math="\left\{ \frac{1}{4}, -\frac{2}{9}, \frac{3}{16}, -\frac{4}{25}, \dots \right\}" block />
+                            <MathBlock math="\left\{ \dfrac{1}{4}, -\dfrac{2}{9}, \dfrac{3}{16}, -\dfrac{4}{25}, \dots \right\}" block />
                             <StepByStep steps={[
                                 <span>Numerator is <MathBlock math="n" inline />.</span>,
                                 <span>Denominator follows the square pattern <MathBlock math="(n+1)^2" inline />.</span>,
                                 <span>The sign is positive for <MathBlock math="n=1" inline />, so we use <MathBlock math="(-1)^{n+1}" inline />.</span>,
-                                <div className="result-banner">Formula: <MathBlock math="a_n = \frac{(-1)^{n+1} n}{(n+1)^2}" inline /></div>
+                                <div className="result-banner">Formula: <MathBlock math="a_n = \dfrac{(-1)^{n+1} n}{(n+1)^2}" inline /></div>
                             ]} />
                         </div>
                     </div>
@@ -129,7 +129,7 @@ const Section11_1 = () => {
                             <MathBlock math="\lim_{n\to\infty} (a_n b_n) = \lim_{n\to\infty} a_n \cdot \lim_{n\to\infty} b_n" block />
                         </div>
                         <div className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-                            <MathBlock math="\lim_{n\to\infty} \frac{a_n}{b_n} = \frac{\lim a_n}{\lim b_n} \text{ (if } \lim b_n \neq 0)" block />
+                            <MathBlock math="\lim_{n\to\infty} \dfrac{a_n}{b_n} = \dfrac{\lim a_n}{\lim b_n} \text{ (if } \lim b_n \neq 0)" block />
                         </div>
                         <div className="glass-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
                             <MathBlock math="\lim_{n\to\infty} a_n^p = (\lim_{n\to\infty} a_n)^p \text{ (if } p > 0, a_n > 0)" block />
@@ -178,19 +178,19 @@ const Section11_1 = () => {
                     <p>Find the limit of <MathBlock math="a_n = \frac{3n^2 - 1}{2n^2 + 5}" inline />.</p>
                     <StepByStep steps={[
                         <span>Divide top and bottom by the highest power, <MathBlock math="n^2" inline />.</span>,
-                        <MathBlock math="\lim_{n \to \infty} \frac{3 - 1/n^2}{2 + 5/n^2}" block />,
-                        <span>As <MathBlock math="n" inline /> approaches infinity, <MathBlock math="1/n^2" inline /> and <MathBlock math="5/n^2" inline /> become 0.</span>,
-                        <div className="result-banner">Verdict: The sequence converges to <strong>3/2</strong>.</div>
+                        <MathBlock math="\lim_{n \to \infty} \dfrac{3 - \dfrac{1}{n^2}}{2 + \dfrac{5}{n^2}}" block />,
+                        <span>As <MathBlock math="n" inline /> approaches infinity, <MathBlock math="\dfrac{1}{n^2}" inline /> and <MathBlock math="\dfrac{5}{n^2}" inline /> become 0.</span>,
+                        <div className="result-banner">Verdict: The sequence converges to <strong><MathBlock math="\dfrac{3}{2}" inline /></strong>.</div>
                     ]} />
                 </div>
 
                 <div className="example-box" style={{ marginTop: '3rem' }}>
                     <div className="example-title">Example 1.3: Geometric Fractions</div>
-                    <p>Find the limit of <MathBlock math="a_n = \frac{4^{n+1}}{7^n}" inline />.</p>
+                    <p>Find the limit of <MathBlock math="a_n = \dfrac{4^{n+1}}{7^n}" inline />.</p>
                     <StepByStep steps={[
                         <span>Rewrite <MathBlock math="4^{n + 1}" inline /> as <MathBlock math="4 \cdot 4^n" inline />.</span>,
-                        <span>Factor out the constant: <MathBlock math="4 \cdot (4/7)^n" inline />.</span>,
-                        <span>Since <MathBlock math="|4/7| < 1" inline />, the geometric part <MathBlock math="(4/7)^n" inline /> approaches 0.</span>,
+                        <span>Factor out the constant: <MathBlock math="4 \cdot \left( \dfrac{4}{7} \right)^n" inline />.</span>,
+                        <span>Since <MathBlock math="\left| \dfrac{4}{7} \right| < 1" inline />, the geometric part <MathBlock math="\left( \dfrac{4}{7} \right)^n" inline /> approaches 0.</span>,
                         <div className="result-banner">Verdict: Converges to <strong>0</strong>.</div>
                     ]} />
                 </div>
@@ -200,17 +200,17 @@ const Section11_1 = () => {
                     <p>Determine the limit of <MathBlock math="a_n = \frac{(-1)^n n}{n^2 + 10}" inline />.</p>
                     <StepByStep steps={[
                         <span>Use the <strong>Absolute Value Theorem</strong>: evaluate <MathBlock math="\lim |a_n|" inline />.</span>,
-                        <MathBlock math="\lim_{n\to\infty} \frac{n}{n^2 + 10} = \lim_{n\to\infty} \frac{1/n}{1 + 10/n^2} = 0" block />,
+                        <MathBlock math="\lim_{n\to\infty} \dfrac{n}{n^2 + 10} = \lim_{n\to\infty} \dfrac{\dfrac{1}{n}}{1 + \dfrac{10}{n^2}} = 0" block />,
                         <div className="result-banner">Since <MathBlock math="\lim |a_n| = 0" inline />, then <MathBlock math="\lim a_n = 0" inline />. Convergent.</div>
                     ]} />
                 </div>
 
                 <div className="example-box" style={{ marginTop: '3rem' }}>
                     <div className="example-title">Example 1.5: Continuous Functions</div>
-                    <p>Find the limit of <MathBlock math="a_n = e^{-1/n^2}" inline />.</p>
+                    <p>Find the limit of <MathBlock math="a_n = e^{-\dfrac{1}{n^2}}" inline />.</p>
                     <StepByStep steps={[
                         <span>Because <MathBlock math="f(x) = e^x" inline /> is continuous, move the limit inside the exponent.</span>,
-                        <MathBlock math="e^{\lim_{n\to\infty} (-1/n^2)} = e^0" block />,
+                        <MathBlock math="e^{\lim_{n\to\infty} \left( -\dfrac{1}{n^2} \right)} = e^0" block />,
                         <div className="result-banner">Verdict: The sequence converges to <strong>1</strong>.</div>
                     ]} />
                 </div>
@@ -239,11 +239,11 @@ const Section11_1 = () => {
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question={<MathBlock math="a_n = \frac{(-1)^n}{\sqrt{n}}" inline />}
+                        question={<MathBlock math="a_n = \dfrac{(-1)^n}{\sqrt{n}}" inline />}
                         correctAnswer="0"
                         steps={[
                             "Apply the Absolute Value Theorem.",
-                            <span>Evaluate <MathBlock math="\lim_{n \to \infty} 1/\sqrt{n}" inline />.</span>,
+                            <span>Evaluate <MathBlock math="\lim_{n \to \infty} \dfrac{1}{\sqrt{n}}" inline />.</span>,
                             "The denominator grows to infinity, so the fraction approaches 0.",
                             "The alternating sequence also converges to 0."
                         ]}
@@ -263,12 +263,12 @@ const Section11_1 = () => {
 
                     <PracticeExercise
                         difficulty="PRO"
-                        question={<MathBlock math="a_n = n \sin(1/n)" inline />}
+                        question={<MathBlock math="a_n = n \sin\left( \dfrac{1}{n} \right)" inline />}
                         correctAnswer="1"
                         steps={[
-                            <span>Rewrite as <MathBlock math="\frac{\sin(1/n)}{1/n}" inline />.</span>,
-                            <span>Let <MathBlock math="x = 1/n" inline />. As <MathBlock math="n\to\infty" inline />, <MathBlock math="x\to 0" inline />.</span>,
-                            <span>The problem becomes <MathBlock math="\lim_{x \to 0} \frac{\sin(x)}{x}" inline />.</span>,
+                            <span>Rewrite as <MathBlock math="\dfrac{\sin(1/n)}{1/n}" inline />.</span>,
+                            <span>Let <MathBlock math="x = \dfrac{1}{n}" inline />. As <MathBlock math="n\to\infty" inline />, <MathBlock math="x\to 0" inline />.</span>,
+                            <span>The problem becomes <MathBlock math="\lim_{x \to 0} \dfrac{\sin(x)}{x}" inline />.</span>,
                             "Using L'Hopital's or the Squeeze Theorem, this limit is 1."
                         ]}
                     />

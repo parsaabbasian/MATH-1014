@@ -72,7 +72,7 @@ const Section11_2 = () => {
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                             <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
                                 <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>A. Exponential Decay</div>
-                                <MathBlock math="\left\{ \frac{1}{5^n} \right\} \Rightarrow \frac{1}{5} + \frac{1}{25} + \dots = \sum_{n=1}^{\infty} \frac{1}{5^n}" block />
+                                <MathBlock math="\left\{ \dfrac{1}{5^n} \right\} \Rightarrow \dfrac{1}{5} + \dfrac{1}{25} + \dots = \sum_{n=1}^{\infty} \dfrac{1}{5^n}" block />
                             </div>
                             <div className="glass-card" style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.1)' }}>
                                 <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '0.5rem' }}>B. Multiples of Two</div>
@@ -135,14 +135,14 @@ const Section11_2 = () => {
                         <span>Multiply by r: <MathBlock math="rs_n = ar + ar^2 + ar^3 + \dots + ar^n" inline /> (2)</span>,
                         <span>Subtract (2) from (1): <MathBlock math="s_n - rs_n = a - ar^n" inline /></span>,
                         <span>Factor: <MathBlock math="s_n(1 - r) = a(1 - r^n)" inline /></span>,
-                        <MathBlock math="s_n = \frac{a(1 - r^n)}{1 - r}" block />
+                        <MathBlock math="s_n = \dfrac{a(1 - r^n)}{1 - r}" block />
                     ]} />
 
                     <div style={{ marginTop: '2rem' }}>
                         <p>Now, let's take the limit as <MathBlock math="n \to \infty" inline />:</p>
                         <ul style={{ listStyleType: 'none', padding: 0 }}>
                             <li style={{ marginBottom: '1.5rem', background: 'var(--bg)', padding: '1rem', borderRadius: '12px', borderLeft: '4px solid var(--success)' }}>
-                                <strong>If |r| &lt; 1:</strong> <MathBlock math="\lim_{n\to\infty} r^n = 0" inline />, so <MathBlock math="\lim_{n\to\infty} s_n = \frac{a}{1 - r}" inline />.
+                                <strong>If |r| &lt; 1:</strong> <MathBlock math="\lim_{n\to\infty} r^n = 0" inline />, so <MathBlock math="\lim_{n\to\infty} s_n = \dfrac{a}{1 - r}" inline />.
                             </li>
                             <li style={{ background: 'var(--bg)', padding: '1rem', borderRadius: '12px', borderLeft: '4px solid var(--primary-light)' }}>
                                 <strong>If |r| ≥ 1:</strong> <MathBlock math="\lim_{n\to\infty} r^n" inline /> does not exist (or is ∞), so the series <strong>diverges</strong>.
@@ -154,7 +154,7 @@ const Section11_2 = () => {
                 <div className="example-box" style={{ background: 'rgba(168, 85, 247, 0.05)', border: '1.5px solid rgba(168, 85, 247, 0.2)', marginTop: '2.5rem' }}>
                     <div className="example-title" style={{ color: 'var(--primary-light)' }}>Geometric Series Summary</div>
                     <p>The geometric series <MathBlock math="\sum_{n=1}^{\infty} ar^{n-1}" inline /> is:</p>
-                    <p>• <strong>Convergent</strong> if <MathBlock math="|r| < 1" inline />, with sum <MathBlock math="S = \frac{a}{1-r}" inline />.</p>
+                    <p>• <strong>Convergent</strong> if <MathBlock math="|r| < 1" inline />, with sum <MathBlock math="S = \dfrac{a}{1-r}" inline />.</p>
                     <p>• <strong>Divergent</strong> if <MathBlock math="|r| \ge 1" inline />.</p>
                 </div>
             </motion.section>
@@ -172,14 +172,13 @@ const Section11_2 = () => {
                 </div>
 
                 <div className="example-box" style={{ marginTop: '2.5rem' }}>
-                    <div className="example-title">The Harmonic Series</div>
-                    <p>Show that the <strong>harmonic series</strong> <MathBlock math="\sum_{n=1}^{\infty} \frac{1}{n}" inline /> is divergent.</p>
-                    <MathBlock math="\sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \dots" block />
+                    <p>Show that the <strong>harmonic series</strong> <MathBlock math="\sum_{n=1}^{\infty} \dfrac{1}{n}" inline /> is divergent.</p>
+                    <MathBlock math="\sum_{n=1}^{\infty} \dfrac{1}{n} = 1 + \dfrac{1}{2} + \dfrac{1}{3} + \dfrac{1}{4} + \dots" block />
                     <StepByStep steps={[
-                        <span><MathBlock math="s_2 = 1 + \frac{1}{2}" inline /></span>,
-                        <span><MathBlock math="s_4 = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4}\right) > 1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4}\right) = 1 + \frac{2}{2}" inline /></span>,
-                        <span><MathBlock math="s_8 = s_4 + \left(\frac{1}{5} + \dots + \frac{1}{8}\right) > 1 + \frac{2}{2} + \left(\frac{1}{8} + \dots + \frac{1}{8}\right) = 1 + \frac{3}{2}" inline /></span>,
-                        <span>In general, <MathBlock math="s_{2^n} > 1 + \frac{n}{2}" inline />.</span>,
+                        <span><MathBlock math="s_2 = 1 + \dfrac{1}{2}" inline /></span>,
+                        <span><MathBlock math="s_4 = 1 + \dfrac{1}{2} + \left(\dfrac{1}{3} + \dfrac{1}{4}\right) > 1 + \dfrac{1}{2} + \left(\dfrac{1}{4} + \dfrac{1}{4}\right) = 1 + \dfrac{2}{2}" inline /></span>,
+                        <span><MathBlock math="s_8 = s_4 + \left(\dfrac{1}{5} + \dots + \dfrac{1}{8}\right) > 1 + \dfrac{2}{2} + \left(\dfrac{1}{8} + \dots + \dfrac{1}{8}\right) = 1 + \dfrac{3}{2}" inline /></span>,
+                        <span>In general, <MathBlock math="s_{2^n} > 1 + \dfrac{n}{2}" inline />.</span>,
                         <div className="result-banner">
                             Since <MathBlock math="\lim_{n \to \infty} s_{2^n} = \infty" inline />, the harmonic series <strong>diverges</strong>.
                         </div>
@@ -199,49 +198,49 @@ const Section11_2 = () => {
                 <div style={{ display: 'grid', gap: '2rem' }}>
                     <PracticeExercise
                         difficulty="Simple"
-                        question={<MathBlock math="6 + 2 + \frac{2}{3} + \frac{2}{9} + \dots" inline />}
+                        question={<MathBlock math="6 + 2 + \dfrac{2}{3} + \dfrac{2}{9} + \dots" inline />}
                         correctAnswer="9"
                         steps={[
                             "Identify a and r.",
                             <span>First term <MathBlock math="a = 6" inline />.</span>,
-                            <span>Ratio <MathBlock math="r = 2/6 = 1/3" inline />.</span>,
-                            <span>Since <MathBlock math="|1/3| < 1" inline />, it converges.</span>,
-                            <span>Sum formula: <MathBlock math="S = \frac{6}{1 - 1/3} = \frac{6}{2/3} = 9" inline />.</span>
+                            <span>Ratio <MathBlock math="r = \dfrac{2}{6} = \dfrac{1}{3}" inline />.</span>,
+                            <span>Since <MathBlock math="\left| \dfrac{1}{3} \right| < 1" inline />, it converges.</span>,
+                            <span>Sum formula: <MathBlock math="S = \dfrac{6}{1 - 1/3} = \dfrac{6}{2/3} = 9" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Medium"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{8^n}{(-7)^{n-1}}" inline />}
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \dfrac{8^n}{(-7)^{n-1}}" inline />}
                         correctAnswer="divergent"
                         steps={[
-                            <span>Expand the sum: <MathBlock math="a_1 = \frac{8^1}{(-7)^0} = 8" inline />.</span>,
-                            <span>Divide terms to find ratio: <MathBlock math="r = \frac{8^2/(-7)^1}{8^1} = -8/7" inline />.</span>,
+                            <span>Expand the sum: <MathBlock math="a_1 = \dfrac{8^1}{(-7)^0} = 8" inline />.</span>,
+                            <span>Divide terms to find ratio: <MathBlock math="r = \dfrac{8^2/(-7)^1}{8^1} = -\dfrac{8}{7}" inline />.</span>,
                             <span>Since <MathBlock math="|r| = 1.14 > 1" inline />, the series diverges.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="Hard"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{3^{2n}}{10^n}" inline />}
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \dfrac{3^{2n}}{10^n}" inline />}
                         correctAnswer="9"
                         steps={[
-                            <span>Simplify the term: <MathBlock math="a_n = \frac{(3^2)^n}{10^n} = \left(\frac{9}{10}\right)^n" inline />.</span>,
+                            <span>Simplify the term: <MathBlock math="a_n = \dfrac{(3^2)^n}{10^n} = \left(\dfrac{9}{10}\right)^n" inline />.</span>,
                             <span>First term <MathBlock math="a = 0.9" inline /> (at n=1). Ratio <MathBlock math="r = 0.9" inline />.</span>,
-                            <span><MathBlock math="S = \frac{0.9}{1 - 0.9} = \frac{0.9}{0.1} = 9" inline />.</span>
+                            <span><MathBlock math="S = \dfrac{0.9}{1 - 0.9} = \dfrac{0.9}{0.1} = 9" inline />.</span>
                         ]}
                     />
 
                     <PracticeExercise
                         difficulty="VERY HARD"
-                        question={<MathBlock math="\sum_{n=1}^{\infty} \frac{1}{(n+1)(n+2)}" inline />}
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \dfrac{1}{(n+1)(n+2)}" inline />}
                         correctAnswer="1/2"
                         steps={[
                             "Use partial fraction decomposition.",
-                            <span>Rewrite as <MathBlock math="\sum \left( \frac{1}{n+1} - \frac{1}{n+2} \right)" inline />.</span>,
-                            <span>This is a telescoping series where <MathBlock math="s_n = (1/2 - 1/3) + (1/3 - 1/4) + \dots + (1/(n+1) - 1/(n+2))" inline />.</span>,
-                            <span>All terms cancel except the first and last: <MathBlock math="1/2 - \frac{1}{n+2}" inline />.</span>,
-                            <span>As <MathBlock math="n \to \infty" inline />, the limit is 1/2.</span>
+                            <span>Rewrite as <MathBlock math="\sum \left( \dfrac{1}{n+1} - \dfrac{1}{n+2} \right)" inline />.</span>,
+                            <span>This is a telescoping series where <MathBlock math="s_n = ( \dfrac{1}{2} - \dfrac{1}{3} ) + ( \dfrac{1}{3} - \dfrac{1}{4} ) + \dots + ( \dfrac{1}{n+1} - \dfrac{1}{n+2} )" inline />.</span>,
+                            <span>All terms cancel except the first and last: <MathBlock math="\dfrac{1}{2} - \dfrac{1}{n+2}" inline />.</span>,
+                            <span>As <MathBlock math="n \to \infty" inline />, the limit is <MathBlock math="\dfrac{1}{2}" inline />.</span>
                         ]}
                     />
                 </div>
