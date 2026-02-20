@@ -272,6 +272,30 @@ const Section11_1 = () => {
                             "Using L'Hopital's or the Squeeze Theorem, this limit is 1."
                         ]}
                     />
+
+                    <PracticeExercise
+                        difficulty="Medium"
+                        question={<MathBlock math="a_n = \dfrac{n!}{(n+2)!}" inline />}
+                        correctAnswer="0"
+                        steps={[
+                            <span>Expand the factorials: <MathBlock math="\dfrac{n!}{(n+2)(n+1)n!}" inline />.</span>,
+                            <span>Simplify the fraction: <MathBlock math="\dfrac{1}{(n+2)(n+1)}" inline />.</span>,
+                            "As n approaches infinity, the denominator goes to infinity.",
+                            "Verdict: Converges to 0."
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="Hard"
+                        question={<MathBlock math="a_n = \dfrac{\ln(n)}{n}" inline />}
+                        correctAnswer="0"
+                        steps={[
+                            <span>Use L'Hopital's Rule on the function <MathBlock math="f(x) = \dfrac{\ln(x)}{x}" inline />.</span>,
+                            <span>Differentiate: <MathBlock math="f'(x) = \dfrac{1/x}{1} = \dfrac{1}{x}" inline />.</span>,
+                            <span>Limit as <MathBlock math="x \to \infty" inline /> of <MathBlock math="\dfrac{1}{x}" inline /> is 0.</span>,
+                            "By the theorem, if the function limit is L, the sequence limit is also L."
+                        ]}
+                    />
                 </div>
             </motion.section>
 

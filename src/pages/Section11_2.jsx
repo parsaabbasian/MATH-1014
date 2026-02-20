@@ -243,6 +243,30 @@ const Section11_2 = () => {
                             <span>As <MathBlock math="n \to \infty" inline />, the limit is <MathBlock math="\dfrac{1}{2}" inline />.</span>
                         ]}
                     />
+
+                    <PracticeExercise
+                        difficulty="Medium"
+                        question={<MathBlock math="4 + 3 + \dfrac{9}{4} + \dfrac{27}{16} + \dots" inline />}
+                        correctAnswer="16"
+                        steps={[
+                            <span>First term <MathBlock math="a = 4" inline />.</span>,
+                            <span>Common ratio <MathBlock math="r = \dfrac{3}{4}" inline />.</span>,
+                            <span>Since <MathBlock math="|3/4| < 1" inline />, the sum is <MathBlock math="S = \dfrac{a}{1-r}" inline />.</span>,
+                            <span><MathBlock math="S = \dfrac{4}{1 - 3/4} = \dfrac{4}{1/4} = 16" inline />.</span>
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="Hard"
+                        question={<MathBlock math="\sum_{n=1}^{\infty} \left[ \left( \dfrac{1}{e} \right)^n + \dfrac{1}{n(n+1)} \right]" inline />}
+                        correctAnswer="\dfrac{1}{e-1} + 1"
+                        steps={[
+                            <span>Split the sum into two parts: a geometric series and a telescoping series.</span>,
+                            <span>Geometric part: <MathBlock math="a=1/e, r=1/e" inline />. Sum is <MathBlock math="\dfrac{1/e}{1-1/e} = \dfrac{1}{e-1}" inline />.</span>,
+                            <span>Telescoping part: <MathBlock math="\sum \left( \dfrac{1}{n} - \dfrac{1}{n+1} \right) = 1" inline />.</span>,
+                            <span>Total sum: <MathBlock math="\dfrac{1}{e-1} + 1" inline />.</span>
+                        ]}
+                    />
                 </div>
             </motion.section>
 

@@ -320,6 +320,34 @@ const Section7_7 = () => {
                             <span>Verdict: The sum of these values is approximately 3.542.</span>
                         ]}
                     />
+
+                    <PracticeExercise
+                        difficulty="Medium"
+                        question={
+                            <span>Approximate <MathBlock math="\int_1^2 \sqrt{1+x^3} \, dx" inline /> using <MathBlock math="n=4" inline /> and the Trapezoidal Rule <MathBlock math="T_4" inline />.</span>
+                        }
+                        correctAnswer="1.622"
+                        steps={[
+                            <span><MathBlock math="\Delta x = 0.25" inline />. Points: 1, 1.25, 1.5, 1.75, 2.</span>,
+                            <span>Values: <MathBlock math="f(1)=1.414, f(1.25)=1.718, f(1.5)=2.107, f(1.75)=2.522, f(2)=3" inline />.</span>,
+                            <span><MathBlock math="T_4 = 0.125 [1.414 + 2(1.718 + 2.107 + 2.522) + 3]" inline />.</span>,
+                            <span><MathBlock math="T_4 \approx 1.622" inline />.</span>
+                        ]}
+                    />
+
+                    <PracticeExercise
+                        difficulty="Hard"
+                        question={
+                            <span>Use the Midpoint Rule <MathBlock math="M_4" inline /> to approximate <MathBlock math="\int_0^1 \cos(x^2) \, dx" inline />.</span>
+                        }
+                        correctAnswer="0.906"
+                        steps={[
+                            <span><MathBlock math="\Delta x = 0.25" inline />. Midpoints: 0.125, 0.375, 0.625, 0.875.</span>,
+                            <span>Values: <MathBlock math="\cos(0.016), \cos(0.141), \cos(0.391), \cos(0.766)" inline /> (in radians).</span>,
+                            <span>Sum: <MathBlock math="M_4 = 0.25 [0.999 + 0.990 + 0.925 + 0.721]" inline />.</span>,
+                            <span><MathBlock math="M_4 \approx 0.906" inline />.</span>
+                        ]}
+                    />
                 </div>
             </motion.section>
 
