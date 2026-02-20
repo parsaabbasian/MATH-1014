@@ -60,18 +60,36 @@ const Section7_7 = () => {
                     <h2 className="section-title">I. The Need for Approximation</h2>
                 </div>
                 <div style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
-                    <p>Some functions are integrable, but their antiderivatives cannot be written using <strong>elementary functions</strong> (polynomials, rational, exponential, logs, or trig).</p>
-                    <div className="example-box" style={{ background: 'rgba(0,0,0,0.1)', marginTop: '1.5rem' }}>
-                        <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>Famous Examples:</div>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-                            <MathBlock math="\int e^{-x^2} dx" inline />
-                            <MathBlock math="\int \sin(x^3) dx" inline />
-                            <MathBlock math="\int \frac{e^x}{x} dx" inline />
-                            <MathBlock math="\int \frac{\cos x}{x} dx" inline />
-                            <MathBlock math="\int \sqrt{x^4+1} dx" inline />
+                    <p>There are some functions that are integrable, but we cannot find their integrals in terms of the following elementary functions:</p>
+                    <ul style={{ margin: '1rem 0 1.5rem 2rem', color: 'var(--text-muted)' }}>
+                        <li>Polynomials</li>
+                        <li>Rational functions</li>
+                        <li>Power functions</li>
+                        <li>Exponential functions</li>
+                        <li>Logarithmic functions</li>
+                        <li>Trigonometric functions and their inverses</li>
+                        <li>All functions obtained from these by the five operations (addition, subtraction, multiplication, division, and composition).</li>
+                    </ul>
+
+                    <div className="example-box" style={{ background: 'rgba(59, 130, 246, 0.05)', border: '1.5px solid rgba(59, 130, 246, 0.2)' }}>
+                        <div style={{ fontWeight: '800', color: 'var(--primary-light)', marginBottom: '1rem' }}>Try to evaluate these integrals:</div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+                            <MathBlock math="\int e^{x^2} \, dx" inline />
+                            <MathBlock math="\int e^{-x^2} \, dx" inline />
+                            <MathBlock math="\int \sin(x^2) \, dx" inline />
+                            <MathBlock math="\int \dfrac{e^x}{x} \, dx" inline />
+                            <MathBlock math="\int \cos(e^x) \, dx" inline />
+                            <MathBlock math="\int \dfrac{1}{\ln x} \, dx" inline />
+                            <MathBlock math="\int \dfrac{\sin x}{x} \, dx" inline />
+                            <MathBlock math="\int \sqrt{x^3 + 1} \, dx" inline />
+                            <MathBlock math="\int x^x \, dx" inline />
                         </div>
                     </div>
-                    <p style={{ marginTop: '1.5rem' }}>To approximate definite integrals of this type, we use <strong>numerical methods</strong>.</p>
+
+                    <p style={{ marginTop: '1.5rem' }}>
+                        We will later see a method to express these integrals as an <strong>infinite series</strong>.
+                        In this section, we learn how to <strong>approximate</strong> the definite integral of these types of functions.
+                    </p>
                 </div>
             </motion.section>
 
@@ -81,42 +99,74 @@ const Section7_7 = () => {
                     <div className="section-icon-wrapper">
                         <Layout size={28} />
                     </div>
-                    <h2 className="section-title">II. Basic Riemann Rules</h2>
+                    <h2 className="section-title">II. Riemann Sum Rules</h2>
                 </div>
                 <div style={{ marginBottom: '2rem' }}>
-                    <p>Divide the interval <MathBlock math="[a,b]" inline /> into <MathBlock math="n" inline /> equal parts:</p>
+                    <p>Recall that if <MathBlock math="f(x)" inline /> is defined and continuous on an interval <MathBlock math="[a,b]" inline />, we divide it into <MathBlock math="n" inline /> subintervals of equal length:</p>
                     <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', margin: '1.5rem 0' }}>
-                        <MathBlock math="\Delta x = \frac{b-a}{n}" block />
-                        <MathBlock math="x_i = a + i\Delta x" block />
+                        <MathBlock math="\Delta x = \dfrac{b-a}{n}" block />
+                        <MathBlock math="\int_a^b f(x) \, dx \approx \sum_{i=1}^{n} f(x_i^*) \Delta x" block />
                     </div>
+                    <p style={{ textAlign: 'center', color: 'var(--text-muted)' }}>where <MathBlock math="x_i^*" inline /> is any point in the <MathBlock math="i" inline />-th subinterval <MathBlock math="[x_{i-1}, x_i]" inline />.</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                <div style={{ display: 'grid', gap: '2.5rem' }}>
+                    {/* Left Endpoint */}
                     <div className="example-box" style={{ margin: 0 }}>
-                        <div className="example-title">Left Endpoint Rule (Lₙ)</div>
-                        <GraphVisualizer type="left" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
-                        <p style={{ marginTop: '1rem' }}>Choose <MathBlock math="x_i^* = x_{i-1}" inline /></p>
-                        <MathBlock math="L_n = \sum_{i=1}^{n} f(x_{i-1})\Delta x" block />
+                        <div className="example-title">1) Left Endpoint Approximation (Lₙ)</div>
+                        <p>If <MathBlock math="x_i^*" inline /> is chosen to be the <strong>left endpoint</strong> of <MathBlock math="[x_{i-1}, x_i]" inline />, then <MathBlock math="x_i^* = x_{i-1}" inline />:</p>
+                        <MathBlock math="\int_a^b f(x) \, dx \approx L_n = \sum_{i=1}^{n} f(x_{i-1}) \Delta x" block />
+                        <div style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+                            <div style={{ flex: '1', minWidth: '300px' }}>
+                                <GraphVisualizer type="left" n={4} domain={[0, 4]} func={(x) => -0.2 * (x - 2) ** 2 + 3} />
+                            </div>
+                            <div className="glass-card" style={{ flex: '1', padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+                                <p>Area of individual rectangles:</p>
+                                <MathBlock math="A_1 = f(x_0)\Delta x" block />
+                                <MathBlock math="A_2 = f(x_1)\Delta x" block />
+                                <MathBlock math="\dots" block />
+                                <MathBlock math="A_n = f(x_{n-1})\Delta x" block />
+                            </div>
+                        </div>
                     </div>
-                    <div className="example-box" style={{ margin: 0 }}>
-                        <div className="example-title">Right Endpoint Rule (Rₙ)</div>
-                        <GraphVisualizer type="right" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
-                        <p style={{ marginTop: '1rem' }}>Choose <MathBlock math="x_i^* = x_i" inline /></p>
-                        <MathBlock math="R_n = \sum_{i=1}^{n} f(x_i)\Delta x" block />
-                    </div>
-                </div>
 
-                <div className="example-box" style={{ marginTop: '2rem' }}>
-                    <div className="example-title">Midpoint Rule (Mₙ)</div>
-                    <div style={{ maxWidth: '500px', margin: '0 auto 1.5rem' }}>
-                        <GraphVisualizer type="mid" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
+                    {/* Right Endpoint */}
+                    <div className="example-box" style={{ margin: 0 }}>
+                        <div className="example-title">2) Right Endpoint Approximation (Rₙ)</div>
+                        <p>If <MathBlock math="x_i^*" inline /> is chosen to be the <strong>right endpoint</strong> of <MathBlock math="[x_{i-1}, x_i]" inline />, then <MathBlock math="x_i^* = x_i" inline />:</p>
+                        <MathBlock math="\int_a^b f(x) \, dx \approx R_n = \sum_{i=1}^{n} f(x_i) \Delta x" block />
+                        <div style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+                            <div style={{ flex: '1', minWidth: '300px' }}>
+                                <GraphVisualizer type="right" n={4} domain={[0, 4]} func={(x) => -0.2 * (x - 2) ** 2 + 3} />
+                            </div>
+                            <div className="glass-card" style={{ flex: '1', padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+                                <p>Area of individual rectangles:</p>
+                                <MathBlock math="A_1 = f(x_1)\Delta x" block />
+                                <MathBlock math="A_2 = f(x_2)\Delta x" block />
+                                <MathBlock math="\dots" block />
+                                <MathBlock math="A_n = f(x_n)\Delta x" block />
+                            </div>
+                        </div>
                     </div>
-                    <p>Choose midpoints <MathBlock math="\bar{x}_i = \frac{x_{i-1} + x_i}{2}" inline /></p>
-                    <MathBlock math="M_n = \sum_{i=1}^{n} f(\bar{x}_i)\Delta x" block />
+
+                    {/* Midpoint Rule */}
+                    <div className="example-box" style={{ margin: 0 }}>
+                        <div className="example-title">3) Midpoint Rule (Mₙ)</div>
+                        <p>If <MathBlock math="x_i^*" inline /> is chosen to be the <strong>midpoint</strong> of <MathBlock math="[x_{i-1}, x_i]" inline />, then <MathBlock math="x_i^* = \bar{x}_i = \dfrac{1}{2}(x_{i-1} + x_i)" inline />:</p>
+                        <MathBlock math="\int_a^b f(x) \, dx \approx M_n = \sum_{i=1}^{n} f(\bar{x}_i) \Delta x" block />
+                        <div style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+                            <div style={{ flex: '1', minWidth: '300px' }}>
+                                <GraphVisualizer type="mid" n={4} domain={[0, 4]} func={(x) => -0.2 * (x - 2) ** 2 + 3} />
+                            </div>
+                            <div className="glass-card" style={{ flex: '1', padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+                                <p>Sum of areas:</p>
+                                <MathBlock math="\text{Area} \approx \left[ f\left(\dfrac{x_0+x_1}{2}\right) + f\left(\dfrac{x_1+x_2}{2}\right) + \dots \right]\Delta x" block />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </motion.section>
 
-            {/* Part 3: Trapezoidal Rule */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
@@ -124,18 +174,32 @@ const Section7_7 = () => {
                     </div>
                     <h2 className="section-title">III. Trapezoidal Rule</h2>
                 </div>
-                <p style={{ marginBottom: '1.5rem' }}>The trapezoidal rule is the average of the left and right rules:</p>
-                <MathBlock math="T_n = \frac{1}{2}(L_n + R_n)" block />
-                <div className="example-box">
-                    <div className="example-title">Computational Formula</div>
-                    <div style={{ maxWidth: '500px', margin: '0 auto 1.5rem' }}>
-                        <GraphVisualizer type="trap" n={3} domain={[0, 3]} func={(x) => x * x + 2} />
+                <div style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                    <p>If we take the average of the <strong>left</strong> and <strong>right</strong> approximations, we have the <strong>Trapezoidal Rule</strong>:</p>
+
+                    <div className="example-box" style={{ background: 'rgba(255, 107, 107, 0.05)', border: '1.5px solid rgba(255, 107, 107, 0.2)' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', marginBottom: '1.5rem' }}>
+                            <div style={{ flex: '1', minWidth: '300px' }}>
+                                <GraphVisualizer type="trap" n={4} domain={[0, 4]} func={(x) => -0.2 * (x - 2) ** 2 + 3} />
+                            </div>
+                            <div style={{ flex: '1' }}>
+                                <p>Area of a single trapezoid <MathBlock math="A_i" inline />:</p>
+                                <MathBlock math="A_i = \dfrac{1}{2} [f(x_{i-1}) + f(x_i)] \Delta x" block />
+                            </div>
+                        </div>
+
+                        <p>The total area under the curve is approximated by the sum of these trapezoids:</p>
+                        <MathBlock math="\int_a^b f(x) \, dx \approx \dfrac{1}{2} \left[ \sum_{i=1}^n f(x_{i-1})\Delta x + \sum_{i=1}^n f(x_i)\Delta x \right]" block />
+                        <MathBlock math="= \dfrac{1}{2} (L_n + R_n)" block />
+
+                        <div className="result-banner" style={{ marginTop: '1.5rem', background: 'rgba(255,255,255,0.05)' }}>
+                            <div style={{ fontWeight: '800', marginBottom: '0.5rem' }}>Full Formula:</div>
+                            <MathBlock math="T_n = \dfrac{\Delta x}{2} [f(x_0) + 2f(x_1) + 2f(x_2) + \dots + 2f(x_{n-1}) + f(x_n)]" block />
+                        </div>
                     </div>
-                    <MathBlock math="T_n = \frac{\Delta x}{2} [f(x_0) + 2f(x_1) + 2f(x_2) + \dots + 2f(x_{n-1}) + f(x_n)]" block />
                 </div>
             </motion.section>
 
-            {/* Part 4: Worked Example */}
             <motion.section variants={itemVariants} className="section-card glass-card">
                 <div className="section-header">
                     <div className="section-icon-wrapper">
@@ -143,35 +207,36 @@ const Section7_7 = () => {
                     </div>
                     <h2 className="section-title">Worked Example</h2>
                 </div>
-                <p style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
-                    Use <MathBlock math="n=4" inline /> to approximate <MathBlock math="\int_0^2 (x^2 + 1) dx" inline />.
-                </p>
+                <div style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
+                    <p style={{ fontWeight: '800', color: 'var(--primary-light)' }}>Example Question:</p>
+                    <p>Use (a) the <strong>Trapezoidal Rule</strong> and (b) the <strong>Midpoint Rule</strong> with <MathBlock math="n=5" inline /> to approximate:</p>
+                    <MathBlock math="\int_1^2 \left( \dfrac{1}{x} \right) \, dx" block />
+                </div>
 
                 <StepByStep steps={[
-                    <div>
+                    <div style={{ width: '100%' }}>
                         <p><strong>Step 1: Compute Δx and Setup</strong></p>
-                        <MathBlock math="\Delta x = \frac{2-0}{4} = 0.5" block />
-                        <p>Subintervals: 0, 0.5, 1, 1.5, 2</p>
+                        <MathBlock math="\Delta x = \dfrac{b-a}{n} = \dfrac{2-1}{5} = 0.2" block />
+                        <p>Subintervals: <MathBlock math="[1, 1.2], [1.2, 1.4], [1.4, 1.6], [1.6, 1.8], [1.8, 2.0]" inline /></p>
+                        <p>Points: <MathBlock math="x_0=1, x_1=1.2, x_2=1.4, x_3=1.6, x_4=1.8, x_5=2" inline /></p>
                     </div>,
-                    <div>
-                        <p><strong>Step 2: Compute Function Values</strong></p>
-                        <p>f(0)=1, f(0.5)=1.25, f(1)=2, f(1.5)=3.25, f(2)=5</p>
+                    <div style={{ width: '100%' }}>
+                        <p><strong>Step 2: Method (a) - Trapezoidal Rule (T₅)</strong></p>
+                        <p>Function values: <MathBlock math="f(1)=1, f(1.2)=\dfrac{1}{1.2}, f(1.4)=\dfrac{1}{1.4}, f(1.6)=\dfrac{1}{1.6}, f(1.8)=\dfrac{1}{1.8}, f(2)=\dfrac{1}{2}" inline /></p>
+                        <MathBlock math="T_5 = \dfrac{0.2}{2} \left[ 1 + 2\left(\dfrac{1}{1.2}\right) + 2\left(\dfrac{1}{1.4}\right) + 2\left(\dfrac{1}{1.6}\right) + 2\left(\dfrac{1}{1.8}\right) + \dfrac{1}{2} \right]" block />
+                        <div className="result-banner">Result: <MathBlock math="T_5 \approx 0.695635" inline /></div>
                     </div>,
-                    <div>
-                        <p><strong>Step 3: Apply Trapezoidal Rule (T₄)</strong></p>
-                        <MathBlock math="T_4 = \frac{0.5}{2} [1 + 2(1.25) + 2(2) + 2(3.25) + 5]" block />
-                        <MathBlock math="T_4 = 0.25 [1 + 2.5 + 4 + 6.5 + 5] = 4.75" block />
+                    <div style={{ width: '100%' }}>
+                        <p><strong>Step 3: Method (b) - Midpoint Rule (M₅)</strong></p>
+                        <p>Midpoints: <MathBlock math="1.1, 1.3, 1.5, 1.7, 1.9" inline /></p>
+                        <MathBlock math="M_5 = 0.2 \left[ f(1.1) + f(1.3) + f(1.5) + f(1.7) + f(1.9) \right]" block />
+                        <MathBlock math="M_5 = 0.2 \left[ \dfrac{1}{1.1} + \dfrac{1}{1.3} + \dfrac{1}{1.5} + \dfrac{1}{1.7} + \dfrac{1}{1.9} \right]" block />
+                        <div className="result-banner">Result: <MathBlock math="M_5 \approx 0.691908" inline /></div>
                     </div>,
-                    <div>
-                        <p><strong>Step 4: Apply Midpoint Rule (M₄)</strong></p>
-                        <p>Midpoints: 0.25, 0.75, 1.25, 1.75</p>
-                        <p>f(0.25)=1.0625, f(0.75)=1.5625, f(1.25)=2.5625, f(1.75)=4.0625</p>
-                        <MathBlock math="M_4 = 0.5(1.0625 + 1.5625 + 2.5625 + 4.0625) = 4.625" block />
-                    </div>,
-                    <div className="result-banner">
-                        <p><strong>Comparison:</strong></p>
-                        <p>Exact Value: <MathBlock math="\int_0^2 (x^2+1)dx = [\frac{x^3}{3} + x]_0^2 = \frac{14}{3} \approx 4.667" inline /></p>
-                        <p>M₄ ≈ 4.625 | T₄ ≈ 4.75</p>
+                    <div className="result-banner" style={{ background: 'rgba(59, 130, 246, 0.1)' }}>
+                        <p><strong>Comparison & Homework:</strong></p>
+                        <p>Exact Value: <MathBlock math="\int_1^2 \dfrac{1}{x} \, dx = [\ln x]_1^2 = \ln 2 \approx 0.693147" inline /></p>
+                        <p>Observe that <MathBlock math="M_n" inline /> and <MathBlock math="T_n" inline /> bracket the exact value.</p>
                     </div>
                 ]} />
             </motion.section>
