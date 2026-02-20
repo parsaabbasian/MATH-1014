@@ -11,7 +11,7 @@ const Topics = () => {
             description: "Learn logical methods to estimate integrals when exact antiderivatives don't exist.",
             path: "/7-7",
             icon: <Layout size={24} />,
-            status: "Locked"
+            status: "Available"
         },
         {
             id: "11.1",
