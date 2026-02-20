@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import MathBlock from '../components/MathBlock';
 import StepByStep from '../components/StepByStep';
 import PracticeExercise from '../components/PracticeExercise';
-import { MousePointer2, Zap, Layout, GraduationCap, Sparkles, Activity } from 'lucide-react';
+import { Zap, Layout, GraduationCap, Sparkles } from 'lucide-react';
 
 const Section11_1 = () => {
     const containerVariants = {
@@ -89,7 +89,7 @@ const Section11_1 = () => {
                             <StepByStep steps={[
                                 <span>Numerator is <MathBlock math="n" inline />.</span>,
                                 <span>Denominator follows the square pattern <MathBlock math="(n+1)^2" inline />.</span>,
-                                <span>The sign is positive for $n=1$, so we use <MathBlock math="(-1)^{n+1}" inline />.</span>,
+                                <span>The sign is positive for <MathBlock math="n=1" inline />, so we use <MathBlock math="(-1)^{n+1}" inline />.</span>,
                                 <div className="result-banner">Formula: <MathBlock math="a_n = \frac{(-1)^{n+1} n}{(n+1)^2}" inline /></div>
                             ]} />
                         </div>
@@ -188,9 +188,9 @@ const Section11_1 = () => {
                     <div className="example-title">Example 1.3: Geometric Fractions</div>
                     <p>Find the limit of <MathBlock math="a_n = \frac{4^{n+1}}{7^n}" inline />.</p>
                     <StepByStep steps={[
-                        <span>Rewrite $4^{n + 1}$ as $4 \cdot 4^n$.</span>,
-                        <span>Factor out the constant: <MathBlock math="4 \cdot \left( \frac{4}{7} \right)^n" inline />.</span>,
-                        <span>Since <MathBlock math="|4/7| < 1" inline />, the geometric part $(4/7)^n$ approaches 0.</span>,
+                        <span>Rewrite <MathBlock math="4^{n + 1}" inline /> as <MathBlock math="4 \cdot 4^n" inline />.</span>,
+                        <span>Factor out the constant: <MathBlock math="4 \cdot (4/7)^n" inline />.</span>,
+                        <span>Since <MathBlock math="|4/7| < 1" inline />, the geometric part <MathBlock math="(4/7)^n" inline /> approaches 0.</span>,
                         <div className="result-banner">Verdict: Converges to <strong>0</strong>.</div>
                     ]} />
                 </div>
@@ -209,7 +209,7 @@ const Section11_1 = () => {
                     <div className="example-title">Example 1.5: Continuous Functions</div>
                     <p>Find the limit of <MathBlock math="a_n = e^{-1/n^2}" inline />.</p>
                     <StepByStep steps={[
-                        <span>Because $f(x) = e^x$ is continuous, move the limit inside the exponent.</span>,
+                        <span>Because <MathBlock math="f(x) = e^x" inline /> is continuous, move the limit inside the exponent.</span>,
                         <MathBlock math="e^{\lim_{n\to\infty} (-1/n^2)} = e^0" block />,
                         <div className="result-banner">Verdict: The sequence converges to <strong>1</strong>.</div>
                     ]} />

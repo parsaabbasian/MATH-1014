@@ -45,7 +45,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
         <div className="example-box practice-box" style={{
             border: status === 'correct' ? '2px solid var(--success)' :
                 status === 'wrong' ? '2px solid var(--error)' : '1px solid var(--border)',
-            background: 'var(--card-bg)'
+            background: 'var(--surface)'
         }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <div className="example-title" style={{ color: difficultyColors[difficulty], margin: 0, letterSpacing: '0.15em', fontSize: '0.75rem' }}>
@@ -123,7 +123,7 @@ const PracticeExercise = ({ question, correctAnswer, steps, difficulty }) => {
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                         style={{ overflow: 'hidden' }}
                     >
-                        <div style={{ paddingTop: '2rem', borderTop: '1px border var(--border)', marginTop: '1rem' }}>
+                        <div style={{ paddingTop: '2rem', borderTop: '1px solid var(--border)', marginTop: '1rem' }}>
                             <div style={{ fontWeight: '800', fontSize: '0.9rem', marginBottom: '1.5rem', color: 'var(--primary-light)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                 <Sparkles size={16} />
                                 STEP-BY-STEP SOLUTION
