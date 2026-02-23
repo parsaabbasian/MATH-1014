@@ -58,7 +58,7 @@ const Resources = () => {
                 </motion.p>
             </header>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem', marginTop: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem', marginTop: '2rem' }}>
                 {categories.map((category, idx) => (
                     <motion.div key={idx} variants={itemVariants} className="section-card glass-card" style={{ height: 'fit-content' }}>
                         <div className="section-header" style={{ marginBottom: '1.5rem' }}>

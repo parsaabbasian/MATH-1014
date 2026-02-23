@@ -45,7 +45,7 @@ const Landing = () => {
                     Interactive step-by-step guides for MATH 1014. Explore complex Calculus II concepts through modern, AI-powered discovery.
                 </motion.p>
 
-                <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+                <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                     <Link to="/topics" className="btn-reveal" style={{ textDecoration: 'none', padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
                         <span>Start Learning</span>
                         <ArrowRight size={20} />
