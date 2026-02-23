@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { BookOpen, ArrowRight, Zap, Target, Layout, Sparkles, Layers } from 'lucide-react';
+import { BookOpen, ArrowRight, Zap, Target, Layout, Sparkles, Layers, Activity } from 'lucide-react';
 
 const Topics = () => {
     const [activeChapter, setActiveChapter] = useState('All');
@@ -32,6 +32,15 @@ const Topics = () => {
             description: "What happens when you add up an infinite number of terms? Find out here.",
             path: "/11-2",
             icon: <Target size={24} />,
+            status: "Available"
+        },
+        {
+            id: "11.3",
+            chapter: "11",
+            title: "The Integral Test",
+            description: "Use your integration skills to determine if a series converges or diverges.",
+            path: "/11-3",
+            icon: <Activity size={24} />,
             status: "Available"
         }
     ];
